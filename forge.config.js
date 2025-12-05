@@ -1,5 +1,6 @@
 const { FusesPlugin } = require('@electron-forge/plugin-fuses');
 const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const { execSync } = require('child_process');
 
 module.exports = {
   packagerConfig: {
@@ -9,33 +10,47 @@ module.exports = {
     extraResource: []
   },
   rebuildConfig: {},
+  hooks: {
+    postMake: async (forgeConfig, makeResults) => {
+      console.log('\n🔧 執行 postMake hook: 生成更新配置檔...\n');
+      try {
+        execSync('node scripts/generate-update-manifest.js', { 
+          stdio: 'inherit',
+          cwd: __dirname 
+        });
+        console.log('\n✅ 更新配置檔生成完成\n');
+      } catch (error) {
+        console.error('\n⚠️  生成更新配置檔時發生錯誤:', error.message);
+        console.error('   這不會影響打包，但自動更新功能可能無法使用\n');
+      }
+      return makeResults;
+    }
+  },
   makers: [
-    // Squirrel.Windows - 產生 Windows 安裝檔（Setup.exe）
-    // 注意：在 macOS 上打包需要 Mono 和 Wine，建議使用 GitHub Actions
-    {
-      name: '@electron-forge/maker-squirrel',
-      config: {
-        name: 'cz_software',
-        setupExe: 'CZSoftwareSetup.exe'
-        // 如果有 icon，可以添加：
-        // setupIcon: './assets/icon.ico',
-        // iconUrl: 'https://...'
-      },
-      platforms: ['win32']
-    },
-    // ZIP - macOS 和 Windows 都可以使用（跨平台打包友好）
+    // ZIP - 只產生 Windows 版本
     {
       name: '@electron-forge/maker-zip',
-      platforms: ['darwin', 'win32'],
+      platforms: ['win32'],
     },
-    {
-      name: '@electron-forge/maker-deb',
-      config: {},
-    },
-    {
-      name: '@electron-forge/maker-rpm',
-      config: {},
-    },
+    
+    // macOS、Linux 已停用
+    // 如需打包其他平台，請取消註釋或使用 GitHub Actions
+    
+    // macOS ZIP
+    // {
+    //   name: '@electron-forge/maker-zip',
+    //   platforms: ['darwin'],
+    // },
+    
+    // Linux
+    // {
+    //   name: '@electron-forge/maker-deb',
+    //   config: {},
+    // },
+    // {
+    //   name: '@electron-forge/maker-rpm',
+    //   config: {},
+    // },
   ],
   publishers: [
     {

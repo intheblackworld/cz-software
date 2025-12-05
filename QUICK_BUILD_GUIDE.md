@@ -4,11 +4,11 @@
 
 ## 🍎 在 macOS 上打包 Windows 應用程式
 
-### ✅ 方案 1：使用 ZIP 格式（最簡單）
+### ✅ 方案 1：使用 ZIP 格式（預設）
 
 ```bash
 # 打包 Windows ZIP 版本
-npm run make:win:zip
+npm run make:win
 
 # 輸出檔案
 # out/make/zip/win32/x64/cz-software-win32-x64-1.0.*.zip
@@ -58,24 +58,14 @@ https://github.com/intheblackworld/cz-software/releases
 
 ---
 
-### ❌ 方案 3：安裝 Mono + Wine（不推薦）
+### ℹ️ 關於 Windows 安裝檔（.exe）
 
-在 macOS 上打包 Squirrel.Windows 安裝檔需要：
+**已停用**：Squirrel.Windows 安裝檔在 macOS 上打包需要 Mono 和 Wine，配置複雜且不穩定。
 
-```bash
-# 安裝依賴（複雜且耗時）
-brew install mono wine-stable
-
-# 然後才能使用
-npm run make:win:installer
-```
-
-**為什麼不推薦**：
-- ❌ 安裝和配置複雜
-- ❌ 佔用大量磁碟空間（幾 GB）
-- ❌ 打包速度慢
-- ❌ 可能出現相容性問題
-- ❌ Wine 在 Apple Silicon (M1/M2/M3) 上支援不完整
+如果需要 Windows 安裝檔：
+- 使用 **GitHub Actions**（在真實 Windows 環境打包）
+- 在 **Windows 電腦**上打包
+- 取消註釋 `forge.config.js` 中的 Squirrel 配置
 
 ---
 
@@ -169,10 +159,11 @@ git push origin v1.0.4
 
 | 平台 | 命令 | 輸出格式 | macOS 可用 | Windows 可用 |
 |------|------|----------|-----------|-------------|
-| Windows ZIP | `npm run make:win:zip` | .zip | ✅ | ✅ |
-| Windows 安裝檔 | `npm run make:win:installer` | .exe | ⚠️ 需 Mono+Wine | ✅ |
+| Windows ZIP | `npm run make:win` | .zip | ✅ | ✅ |
 | macOS | `npm run make` | .zip | ✅ | ❌ |
-| 所有 Windows 格式 | `npm run make:win` | 全部 | ⚠️ 部分需 Mono+Wine | ✅ |
+| 所有平台 | GitHub Actions | 全部 | ✅ | ✅ |
+
+**註**：Windows 安裝檔（.exe）已停用，如需使用請透過 GitHub Actions 或在 Windows 環境打包。
 
 ---
 
@@ -216,18 +207,20 @@ npm install
 如果您在 **macOS** 上：
 
 ```bash
-# 快速解決方案
-npm run make:win:zip
+# 打包 Windows ZIP 版本
+npm run make:win
 
-# 或使用 CI（推薦）
+# 或使用 GitHub Actions（推薦）
 git tag v1.0.4 && git push origin v1.0.4
 ```
 
 如果您在 **Windows** 上：
 
 ```powershell
-# 推薦方案
-npm run make:win:installer
+# 打包 Windows ZIP 版本
+npm run make:win
+
+# 如需安裝檔，請在 forge.config.js 中取消註釋 Squirrel 配置
 ```
 
 如果需要**正式發布**：

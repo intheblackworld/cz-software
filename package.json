@@ -6,11 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
-    "make:win": "electron-forge make --platform=win32 --arch=x64",
-    "make:win:installer": "electron-forge make --platform=win32 --arch=x64 --targets=@electron-forge/maker-squirrel",
-    "make:win:zip": "electron-forge make --platform=win32 --arch=x64 --targets=@electron-forge/maker-zip",
+    "make": "electron-forge make --platform=win32 --arch=x64",
     "publish": "electron-forge publish",
+    "generate-manifest": "node scripts/generate-update-manifest.js",
     "postinstall": "node -e \"try { require('puppeteer') } catch(e) { console.log('Puppeteer not ready yet') }\""
   },
   "author": "David Zuray",
@@ -27,6 +25,7 @@
     "@electron-forge/publisher-github": "^7.10.2",
     "@electron/fuses": "^1.8.0",
     "electron": "^39.2.4",
+    "electron-builder": "^26.0.12",
     "electron-reload": "^2.0.0-alpha.1"
   },
   "dependencies": {
