@@ -5,7 +5,9 @@ const { execSync } = require('child_process');
 module.exports = {
   packagerConfig: {
     asar: {
-      unpack: '**/{node_modules/puppeteer,.local-chromium}/**/*'
+      // 注意：不再打包 Chrome，應用程式會使用系統已安裝的 Chrome
+      // 這樣可以大幅減少打包大小（節省約 300-400 MB）
+      unpack: []
     },
     extraResource: []
   },

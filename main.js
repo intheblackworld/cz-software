@@ -311,11 +311,34 @@ async function launchPuppeteerBrowser(eventSender) {
             ]
         };
         
-        // 在打包環境下，指定 Chrome 的執行路徑
+        // 在打包環境下，使用系統已安裝的 Chrome
         if (app.isPackaged) {
-            const chromePath = puppeteer.executablePath();
-            console.log('[Puppeteer] 使用 Chrome 路徑:', chromePath);
-            launchOptions.executablePath = chromePath;
+            // 查找系統 Chrome（Windows 常見位置）
+            const systemChromePaths = [
+                'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+                'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+                path.join(os.homedir(), 'AppData', 'Local', 'Google', 'Chrome', 'Application', 'chrome.exe'),
+            ];
+            
+            let chromePath = null;
+            
+            for (const sysPath of systemChromePaths) {
+                if (fs.existsSync(sysPath)) {
+                    chromePath = sysPath;
+                    console.log('[Puppeteer] 找到系統 Chrome:', chromePath);
+                    break;
+                }
+            }
+            
+            if (chromePath) {
+                launchOptions.executablePath = chromePath;
+                console.log('[Puppeteer] 使用系統 Chrome:', chromePath);
+            } else {
+                const errorMsg = '無法找到系統 Chrome 瀏覽器。請確認已安裝 Google Chrome。\n' +
+                    '下載位置：https://www.google.com/chrome/';
+                console.error('[Puppeteer]', errorMsg);
+                throw new Error(errorMsg);
+            }
         }
         
         browser = await puppeteer.launch(launchOptions);
