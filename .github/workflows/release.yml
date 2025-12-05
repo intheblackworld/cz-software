@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'  # 當推送 v 開頭的 tag 時觸發（例如 v1.0.0）
 
+permissions:
+  contents: write  # 允許創建 releases 和上傳檔案
+
 jobs:
   release:
     strategy:
