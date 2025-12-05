@@ -10,53 +10,34 @@ permissions:
 
 jobs:
   release:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
-    
-    runs-on: ${{ matrix.os }}
+    name: Build Windows ZIP
+    runs-on: windows-latest
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
       
-      # 快取 Puppeteer Chrome（避免每次都下載 300+ MB）
+      # 快取 Puppeteer Chrome（避免每次都下載 ~200 MB）
       - name: Cache Puppeteer Chrome
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: .local-chromium
-          key: ${{ runner.os }}-puppeteer-${{ hashFiles('package-lock.json') }}
+          path: |
+            ~/.cache/puppeteer
+            .local-chromium
+          key: windows-puppeteer-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-puppeteer-
+            windows-puppeteer-
       
       - name: Install dependencies
         run: npm ci
       
-      # 驗證 Chrome 是否已下載
-      - name: Verify Chrome installation
-        shell: bash
-        run: |
-          if [ -d ".local-chromium" ]; then
-            echo "✓ Chrome directory exists"
-            if [ "$RUNNER_OS" = "Windows" ]; then
-              ls -la .local-chromium/chrome-win || ls -la .local-chromium/chrome-win64 || echo "Chrome files:"
-              find .local-chromium -name "chrome.exe" || echo "Chrome executable not found"
-            else
-              ls -la .local-chromium/chrome-mac || ls -la .local-chromium/chrome || echo "Chrome files:"
-              find .local-chromium -name "chrome" -o -name "Chromium" || echo "Chrome executable not found"
-            fi
-          else
-            echo "⚠ Warning: .local-chromium directory not found"
-            echo "This might cause issues during packaging"
-          fi
-      
-      - name: Publish to GitHub Releases
+      - name: Build and Publish to GitHub Releases
         run: npm run publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
