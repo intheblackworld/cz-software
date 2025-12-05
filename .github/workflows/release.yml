@@ -26,8 +26,35 @@ jobs:
           node-version: '18'
           cache: 'npm'
       
+      # 快取 Puppeteer Chrome（避免每次都下載 300+ MB）
+      - name: Cache Puppeteer Chrome
+        uses: actions/cache@v3
+        with:
+          path: .local-chromium
+          key: ${{ runner.os }}-puppeteer-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-puppeteer-
+      
       - name: Install dependencies
         run: npm ci
+      
+      # 驗證 Chrome 是否已下載
+      - name: Verify Chrome installation
+        shell: bash
+        run: |
+          if [ -d ".local-chromium" ]; then
+            echo "✓ Chrome directory exists"
+            if [ "$RUNNER_OS" = "Windows" ]; then
+              ls -la .local-chromium/chrome-win || ls -la .local-chromium/chrome-win64 || echo "Chrome files:"
+              find .local-chromium -name "chrome.exe" || echo "Chrome executable not found"
+            else
+              ls -la .local-chromium/chrome-mac || ls -la .local-chromium/chrome || echo "Chrome files:"
+              find .local-chromium -name "chrome" -o -name "Chromium" || echo "Chrome executable not found"
+            fi
+          else
+            echo "⚠ Warning: .local-chromium directory not found"
+            echo "This might cause issues during packaging"
+          fi
       
       - name: Publish to GitHub Releases
         run: npm run publish

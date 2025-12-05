@@ -3,7 +3,10 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
-    asar: true,
+    asar: {
+      unpack: '**/{node_modules/puppeteer,.local-chromium}/**/*'
+    },
+    extraResource: []
   },
   rebuildConfig: {},
   makers: [

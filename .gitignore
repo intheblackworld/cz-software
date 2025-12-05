@@ -35,3 +35,6 @@ out/*                    # Electron Forge 打包輸出
 *.asar.unpacked
 release/
 build/
+
+# Puppeteer Chrome 快取（檔案很大，不要提交）
+.local-chromium/

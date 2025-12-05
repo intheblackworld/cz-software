@@ -293,7 +293,8 @@ async function launchPuppeteerBrowser(eventSender) {
             console.log('[Puppeteer] 已建立用戶資料目錄:', userDataDir);
         }
         
-        browser = await puppeteer.launch({
+        // Puppeteer 啟動配置
+        const launchOptions = {
             headless: false, // 顯示瀏覽器視窗（設為 true 則隱藏）
             userDataDir: userDataDir, // 指定用戶資料目錄
             defaultViewport: {
@@ -308,7 +309,16 @@ async function launchPuppeteerBrowser(eventSender) {
                 '--disable-web-security', // 允許跨域（謹慎使用）
                 '--disable-features=IsolateOrigins,site-per-process'
             ]
-        });
+        };
+        
+        // 在打包環境下，指定 Chrome 的執行路徑
+        if (app.isPackaged) {
+            const chromePath = puppeteer.executablePath();
+            console.log('[Puppeteer] 使用 Chrome 路徑:', chromePath);
+            launchOptions.executablePath = chromePath;
+        }
+        
+        browser = await puppeteer.launch(launchOptions);
         
         // 建立新頁面
         page = await browser.newPage();
