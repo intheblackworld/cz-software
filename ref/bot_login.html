@@ -1,0 +1,2066 @@
+<body class="page-home close-notice open-notice" style="padding-top: 0px">
+  <form
+    id="form1"
+    name="form1"
+    method="post"
+    action="/BOT_CIB_B2C_WEB/common/login/Login_1.faces"
+    class="form"
+    enctype="application/x-www-form-urlencoded"
+    onkeypress="login(event)"
+  >
+    <input type="hidden" name="form1" value="form1" />
+    <div class="notice--mobile">
+      <div class="notice--mobile__title">
+        <a class="notice--mobile__close" href="#" type="click"
+          ><b></b><b></b
+        ></a>
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i
+        >114年12月4日(星期四)17:00~21:00暫停歷史交易明細查詢服務
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i
+        >本行e企合成網─企業外匯服務之匯出匯款及匯入匯款作業自2025年11月17日起全面使用MX（ISO
+        20022）格式，相關格式請至企業外匯服務下載參考。
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i>(請詳閱內容！)因Google
+        Chrome最新142版本啟用「區域網路存取權」檢核，請於轉帳交易時允許瀏覽器視窗「尋找區域網路上的任何裝置並連線」之權限請求
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i>e企合成網企業外匯及專用系統super
+        e-billing，使用chrome放行出現「IFX簽章模組不正確」，請改用其他瀏覽器(edge、firefox)放行。
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i
+        >自即日起，本行金融XML憑證更新費用繳納管道，新增線上繳費方式，請多加利用。
+      </div>
+      <div class="notice--mobile__content">
+        <i class="icon-notice"></i
+        >自即日起，如經查於經濟部公司登記、商業登記已非正常營運狀態者，將暫停使用e企合成網權限
+      </div>
+    </div>
+
+    <div class="wrapper" id="top">
+      <nav class="nav" style="top: 0px">
+        <div class="container">
+          <a
+            class="nav__logo"
+            href="/BOT_CIB_B2C_WEB/common/login.faces"
+            title="200"
+            type="click"
+            >臺灣銀行e企合成網</a
+          >
+          <input class="nav__toggle" type="checkbox" />
+          <div class="nav__burger">
+            <div class="open"><b></b><b></b><b></b></div>
+          </div>
+          <div class="nav--mobile" style="margin-top: 0px">
+            <div class="nav-sep anim-nav"><span>相關服務</span></div>
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO01001_1.faces"
+              type="click"
+              ><i class="icon-faq"></i><span>常見問題</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO05001_1.faces"
+              type="click"
+              ><i class="icon-download"></i><span>資源下載</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO05002_1.faces"
+              type="click"
+            >
+              <i class="icon-policy"></i><span>約定事項</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/Login_4.faces"
+              type="click"
+            >
+              <i class="icon-contact"></i><span>聯絡我們</span></a
+            >
+
+            <div class="nav-sep anim-nav"><span>外部連結</span></div>
+            <a
+              class="nav__item anim-nav"
+              href="https://www.bot.com.tw/"
+              target="_blank"
+              rel="noopener noreferrer"
+              type="click"
+              ><i class="icon-home"></i><span>臺銀首頁</span></a
+            >
+            <div
+              class="nav__item anim-nav"
+              data-toggle="modal"
+              data-target="#stockboard--modal"
+            >
+              <i class="icon-stock"></i><span>金融看版</span>
+            </div>
+
+            <a
+              class="nav__item anim-nav"
+              href="https://billing.bot.com.tw/Company/EBSupplier/Account/login"
+              target="_vendor"
+              type="click"
+            >
+              <i class="icon-partner"></i><span>供應商專區</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="https://necomb.bot.com.tw/enbvc/"
+              target="_voice"
+              type="click"
+            >
+              <i class="icon-voicepassword"></i><span>語音密碼</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="https://air.bot.com.tw/WebChat/"
+              target="_air"
+              type="click"
+            >
+              <i class="icon-discuss"></i><span>智能客服</span></a
+            >
+            <div class="nav-sep anim-nav"><span>Language</span></div>
+            <a
+              class="nav__item anim-nav"
+              onclick="onLangChange('zh_TW')"
+              type="click"
+            >
+              <span>正體中文</span></a
+            ><a
+              class="nav__item anim-nav"
+              onclick="onLangChange('zh_CN')"
+              type="click"
+            >
+              <span>简体中文</span></a
+            ><a
+              class="nav__item anim-nav"
+              onclick="onLangChange('en_US')"
+              type="click"
+            >
+              <span>English</span></a
+            >
+          </div>
+
+          <div class="nav--main">
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO01001_1.faces"
+              type="click"
+            >
+              <span>常見問題</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO05001_1.faces"
+              type="click"
+            >
+              <span>資源下載</span></a
+            >
+            <a
+              class="nav__item anim-nav"
+              href="/BOT_CIB_B2C_WEB/common/login/FPO05002_1.faces"
+              type="click"
+            >
+              <span>約定事項</span></a
+            >
+            <a
+              class="nav__item anim-nav nav__nowrap"
+              href="/BOT_CIB_B2C_WEB/common/login/Login_4.faces"
+              type="click"
+            >
+              <span>聯絡我們</span></a
+            >
+          </div>
+
+          <div class="nav--other">
+            <a
+              class="nav__item anim-nav"
+              href="https://www.bot.com.tw/"
+              target="_blank"
+              rel="noopener noreferrer"
+              type="click"
+            >
+              <span>臺銀首頁</span></a
+            >
+
+            <div class="nav__item dropdown">
+              <a
+                class="btn dropdown-link"
+                data-toggle="dropdown"
+                id="stockboard"
+                type="click"
+                >金融看版</a
+              >
+              <div
+                class="stockboard dropdown-menu"
+                aria-labelledby="#stockboard"
+              >
+                ﻿
+
+                <div class="stockboard__group">
+                  <div class="stockboard__head">匯利率</div>
+                  <ul class="stockboard__body">
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/ir?Lang=zh-TW')
+                        "
+                        type="click"
+                        >外匯存款牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/ir?Lang=zh-TW')
+                        "
+                        type="click"
+                        >外匯歷史存款牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/use?Lang=zh-TW')
+                        "
+                        type="click"
+                        >外幣遠期信用狀牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/xrt?Lang=zh-TW')
+                        "
+                        type="click"
+                        >牌告匯率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink(
+                            'https://rate.bot.com.tw/xrt/history?Lang=zh-TW'
+                          )
+                        "
+                        type="click"
+                        >歷史匯率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/cr?Lang=zh-TW')
+                        "
+                        type="click"
+                        >外幣結帳價格表</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/twd?Lang=zh-TW')
+                        "
+                        type="click"
+                        >新臺幣存(放)款牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://wwwap.bot.com.tw/NcdNet/Ncd.aspx')
+                        "
+                        type="click"
+                        >可轉讓定期存單牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink(
+                            'https://www.bot.com.tw/tw/footer/information-disclosure/legal-disclaimers/consumer-loan'
+                          )
+                        "
+                        type="click"
+                        >消費者貸款牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink(
+                            'https://wwwap.bot.com.tw/securities/securities.aspx'
+                          )
+                        "
+                        type="click"
+                        >短期票券利率表</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://wwwap.bot.com.tw/Fund/FundRate.aspx')
+                        "
+                        type="click"
+                        >公債附條件交易利率</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="stockboard__group">
+                  <div class="stockboard__head">黃金牌價</div>
+                  <ul class="stockboard__body">
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/gold?Lang=zh-TW')
+                        "
+                        type="click"
+                        >新臺幣黃金牌價</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/gold/obu?Lang=zh-TW')
+                        "
+                        type="click"
+                        >外幣計價黃金存摺牌價</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink(
+                            'https://rate.bot.com.tw/gold/history?Lang=zh-TW'
+                          )
+                        "
+                        type="click"
+                        >歷史黃金牌價</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink(
+                            'https://rate.bot.com.tw/gold/passbook?Lang=zh-TW'
+                          )
+                        "
+                        type="click"
+                        >歷史黃金存摺牌價</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="stockboard__group">
+                  <div class="stockboard__head">OBU匯利率</div>
+                  <ul class="stockboard__body">
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/ir/obu?Lang=zh-TW')
+                        "
+                        type="click"
+                        >OBU外匯存款牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/xrt/obu?Lang=zh-TW')
+                        "
+                        type="click"
+                        >OBU牌告匯率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/use/obu?Lang=zh-TW')
+                        "
+                        type="click"
+                        >OBU外幣遠期信用狀牌告利率</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/xrt/obuhx?Lang=zh-TW')
+                        "
+                        type="click"
+                        >OBU歷史牌告匯率查詢</a
+                      >
+                    </li>
+                    <li class="stockboard__item">
+                      <a
+                        class="stockboard__link"
+                        href="#"
+                        onclick="
+                          goLink('https://rate.bot.com.tw/ir/obu?Lang=zh-TW')
+                        "
+                        type="click"
+                        >OBU歷史外匯存款牌告利率查詢</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="lang">
+              <i class="icon-earth"></i>
+              <script
+                language="javascript"
+                src="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/combo/js/combo.js?1764237235059"
+                type="text/javascript"
+              ></script>
+              <link
+                rel="stylesheet"
+                href="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/combo/css/combo.css?1764237235059"
+                type="text/css"
+              />
+              <script
+                src="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/dojo/js/dojo/dojo.js?1764237235059"
+                type="text/javascript"
+                charset="utf-8"
+                djconfig="parseOnLoad: true"
+              ></script>
+              <script type="text/javascript">
+                var cboLang = new Array();
+                cboLang[0] = new Array("Language", "default", "_none");
+                cboLang[1] = new Array("正體中文", "zh_TW", "_none");
+                cboLang[2] = new Array("简体中文", "zh_CN", "_none");
+                cboLang[3] = new Array("English", "en_US", "_none");
+              </script>
+              <script type="text/javascript">
+                function cboLangInit(sGroupKey) {
+                  setupComboBox("form1:cboLang", sGroupKey, "", cboLang);
+                  cboLangChange();
+                }
+                function cboLangChange() {
+                  var sGroupKey =
+                    document.getElementById("form1:cboLang").value;
+                }
+              </script>
+              <select
+                name="form1:cboLang"
+                id="form1:cboLang"
+                class="select-lang select2-hidden-accessible"
+                onchange="
+                  cboLangChange();
+                  onLangComboChange();
+                "
+                data-select2-id="form1:cboLang"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <option value="default" data-select2-id="2">Language</option>
+                <option value="zh_TW">正體中文</option>
+                <option value="zh_CN">简体中文</option>
+                <option value="en_US">English</option></select
+              ><span
+                class="select2 select2-container select2-container--lang"
+                dir="ltr"
+                data-select2-id="1"
+                style="width: 83px"
+                ><span class="selection"
+                  ><span
+                    class="select2-selection select2-selection--single"
+                    role="combobox"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    tabindex="0"
+                    aria-disabled="false"
+                    aria-labelledby="select2-form1cboLang-container"
+                    ><span
+                      class="select2-selection__rendered"
+                      id="select2-form1cboLang-container"
+                      role="textbox"
+                      aria-readonly="true"
+                      title="Language"
+                      >Language</span
+                    ><span class="select2-selection__arrow" role="presentation"
+                      ><b role="presentation"></b></span></span></span
+                ><span class="dropdown-wrapper" aria-hidden="true"></span
+              ></span>
+              <script type="text/javascript">
+                setupComboBox("form1:cboLang", "_none", "Language", cboLang);
+                addOnResetEvent(function (event) {
+                  setupComboBox("form1:cboLang", "_none", "Language", cboLang);
+                });
+              </script>
+            </div>
+          </div>
+          <a class="nav__open__notice" type="click"
+            ><i class="icon-notice"></i
+          ></a>
+        </div>
+      </nav>
+      <header class="header--home">
+        <div class="container">
+          <div class="header__login">
+            <div class="header__login__container">
+              <div class="login-field">
+                <input
+                  id="form1:aesUUID"
+                  type="hidden"
+                  name="form1:aesUUID"
+                  value=""
+                /><input
+                  id="form1:forceLogin"
+                  type="hidden"
+                  name="form1:forceLogin"
+                  value="false"
+                /><input
+                  id="form1:target"
+                  type="hidden"
+                  name="form1:target"
+                /><input
+                  id="form1:mobile"
+                  type="hidden"
+                  name="form1:mobile"
+                /><input
+                  id="form1:currentOS"
+                  type="hidden"
+                  name="form1:currentOS"
+                  value=""
+                /><input
+                  id="form1:UUID"
+                  type="text"
+                  name="form1:UUID"
+                  autocomplete="off"
+                  value=""
+                  class="field__input"
+                />
+
+                <label class="field__label">統一編號 :</label>
+                <i class="icon-keyboard"></i>
+              </div>
+              <div class="login-field">
+                <div
+                  class="hideShowPassword-wrapper"
+                  style="
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    vertical-align: baseline;
+                    margin: 0px;
+                  "
+                >
+                  <input
+                    id="form1:UserID"
+                    type="password"
+                    name="form1:UserID"
+                    autocomplete="off"
+                    value=""
+                    onblur="removeCapsLock()"
+                    onfocus="capsLock(event)"
+                    onkeyup="capsLock(event)"
+                    style="height: 45px; margin: 0px; padding-right: 46px"
+                    class="field__input hideShowPassword-field"
+                  /><button
+                    type="button"
+                    role="button"
+                    aria-label="Show Password"
+                    title=""
+                    tabindex="-1"
+                    class="hideShowPassword-toggle hideShowPassword-toggle-hide"
+                    aria-pressed="false"
+                    style="
+                      position: absolute;
+                      right: 0px;
+                      top: 50%;
+                      margin-top: -22px;
+                    "
+                  >
+                    Show
+                  </button>
+                </div>
+                <input
+                  id="form1:aesUserID"
+                  type="hidden"
+                  name="form1:aesUserID"
+                  value=""
+                />
+
+                <label class="field__label">使用者代號 :</label>
+                <i class="icon-keyboard"></i>
+              </div>
+              <div class="login-field">
+                <input
+                  id="form1:sha1Pwd"
+                  type="hidden"
+                  name="form1:sha1Pwd"
+                  value=""
+                /><input
+                  id="form1:sha256Pwd"
+                  type="hidden"
+                  name="form1:sha256Pwd"
+                  value=""
+                /><input
+                  id="form1:md5Pwd"
+                  type="hidden"
+                  name="form1:md5Pwd"
+                  value=""
+                /><input
+                  id="form1:login2Step"
+                  type="hidden"
+                  name="form1:login2Step"
+                  value="0"
+                /><input
+                  id="form1:modulus"
+                  type="hidden"
+                  name="form1:modulus"
+                  value="B2872B96CA86B20E5439F2972B399B8A2828A339B2937117BCD7A5F5331B996AF7A32918C984A5DFD139E0AC0154085096289DF8CBE5D9F768D968FBC631220A1C57F89D9618B1E938B1F21D4CFB763EB7B0AB3F224F272E8595591E0E2909CCEDC7A25F326E451D3D744DA22E55D390AF6B327484B0680FB111D3E060860F222BAF2A877E64CC707505C97A3D045D9F14EBCB66205C46330629E2DD9B27E46A18B9874E0315B7D70CC137B7D87D8EB0413FFF9D6B938FF0F1A4403D37E8B23C571A171E1B42BE09551A6640EE6A625DB08B6D565D7EAC293619AF9E94DBCC65BE688095F02169BA70B783103F7774543EEA7D234E90E017F1F90827BEAEE36B"
+                /><input
+                  id="form1:exponent"
+                  type="hidden"
+                  name="form1:exponent"
+                  value="FC51"
+                /><input
+                  id="form1:encryptFlag"
+                  type="hidden"
+                  name="form1:encryptFlag"
+                  value="1"
+                />
+                <div
+                  class="hideShowPassword-wrapper"
+                  style="
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    vertical-align: baseline;
+                    margin: 0px;
+                  "
+                >
+                  <input
+                    id="form1:Password"
+                    type="password"
+                    name="form1:Password"
+                    autocomplete="off"
+                    value=""
+                    onblur="removeCapsLock()"
+                    onfocus="capsLock(event)"
+                    onkeyup="capsLock(event)"
+                    style="height: 45px; margin: 0px; padding-right: 46px"
+                    class="field__input hideShowPassword-field"
+                  /><button
+                    type="button"
+                    role="button"
+                    aria-label="Show Password"
+                    title=""
+                    tabindex="-1"
+                    class="hideShowPassword-toggle hideShowPassword-toggle-hide"
+                    aria-pressed="false"
+                    style="
+                      position: absolute;
+                      right: 0px;
+                      top: 50%;
+                      margin-top: -22px;
+                    "
+                  >
+                    Show
+                  </button>
+                </div>
+
+                <label class="field__label">使用者密碼 :</label>
+                <i class="icon-keyboard"></i>
+              </div>
+              <div class="login-field login-field--captcha">
+                <input
+                  id="form1:captchaAnswer"
+                  type="text"
+                  name="form1:captchaAnswer"
+                  value=""
+                  class="field__input"
+                  autocomplete="off"
+                />
+                <label class="field__label">圖形驗證碼 :</label>
+                <div class="field__captcha">
+                  <div
+                    id="captcha"
+                    class="captcha__img"
+                    onclick="javascript: captcha('captcha');"
+                  >
+                    <img
+                      src="/BOT_CIB_B2C_WEB/captcha/img?0.678911859402433&amp;width=80&amp;height=22"
+                    />
+                  </div>
+                  <i
+                    class="icon-refresh"
+                    onclick="javascript: captcha('captcha');"
+                  ></i>
+                </div>
+                <div class="field__keyboard">
+                  <a class="field__addon" id="keyboard" type="click"
+                    ><i class="icon-keyboard"></i
+                  ></a>
+                </div>
+              </div>
+              <script
+                src="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/commandlinkex/js/screenmask.js?1764237235059"
+                type="text/javascript"
+              ></script>
+              <link
+                rel="stylesheet"
+                href="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/commandlinkex/css/screenmask.css?1764237235059"
+                type="text/css"
+              />
+              <script
+                src="/BOT_CIB_B2C_WEB/.ibmjsfres/custom/commandlinkex/js/commandlinkex.js?1764237235059"
+                type="text/javascript"
+              ></script>
+              <a
+                href="javascript:void(0);"
+                id="form1:loginbtn"
+                onclick="if(!encryptData()) return false;if(document.forms['form1']['form1:loginbtn'].value!='') return false;this.className+=' btndisabled';document.forms['form1']['form1:loginbtn'].disabled=false;document.forms['form1']['form1:loginbtn'].value='form1:loginbtn'; if(typeof(filterSubmit) != 'undefined' &amp;&amp; filterSubmit instanceof Function){filterSubmit( document.forms['form1']);} document.forms['form1'].submit();document.forms['form1']['form1:loginbtn'].disabled=true; return false;"
+                class="login__submit"
+                type="click"
+                ><span>登入</span></a
+              >
+              <input type="hidden" name="form1:loginbtn" />
+
+              <span><span id="commonMessage"></span></span>
+              <br /><br /><br />
+              <span id="capLock" class="caplock_msg">Caps Lock 已啟用</span>
+              <input
+                id="form1:local"
+                type="hidden"
+                name="form1:local"
+                value="false"
+              />
+            </div>
+          </div>
+          <div class="header__hero">
+            <picture class="header__hero__img">
+              <source
+                media="(min-width: 1920px)"
+                srcset="/BOT_CIB_B2C_WEB/images/hero-photo-fhd.jpg"
+              />
+              <source
+                media="(min-width: 1440px)"
+                srcset="/BOT_CIB_B2C_WEB/images/hero-photo-hd.jpg"
+              />
+              <source
+                media="(min-width: 580px)"
+                srcset="/BOT_CIB_B2C_WEB/images/hero-photo.jpg"
+              />
+              <source srcset="/BOT_CIB_B2C_WEB/images/hero-photo-mobile.jpg" />
+              <img
+                src="/BOT_CIB_B2C_WEB/images/hero-photo-hd.jpg"
+                data-object-fit="cover"
+              />
+            </picture>
+            <div class="header__hero__slogan">
+              <span class="header__hero__slogan--sub"
+                >深耕臺灣金融，佈局全球市場</span
+              ><span class="header__hero__slogan--primary">建構領導銀行 </span>
+            </div>
+          </div>
+        </div>
+        <div class="transparent-overlay"></div>
+      </header>
+      <main class="main">
+        <div class="container">
+          <section class="section-news">
+            <h2 class="section__header">最新消息</h2>
+            <div class="section-news__body">
+              <ul class="news__list">
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news314102"
+                    type="click"
+                    >114年12月4日(星期四)17:00~21:00暫停歷史交易明細查詢服務</a
+                  >
+                </li>
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news313734"
+                    type="click"
+                    >本行e企合成網─企業外匯服務之匯出匯款及匯入匯款作業自2025年11月17日起全面使用MX（ISO
+                    20022）格式，相關格式請至企業外匯服務下載參考。</a
+                  >
+                </li>
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news313592"
+                    type="click"
+                    >(請詳閱內容！)因Google
+                    Chrome最新142版本啟用「區域網路存取權」檢核，請於轉帳交易時允許瀏覽器視窗「尋找區域網路上的任何裝置並連線」之權限請求</a
+                  >
+                </li>
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news313519"
+                    type="click"
+                    >e企合成網企業外匯及專用系統super
+                    e-billing，使用chrome放行出現「IFX簽章模組不正確」，請改用其他瀏覽器(edge、firefox)放行。</a
+                  >
+                </li>
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news313495"
+                    type="click"
+                    >自即日起，本行金融XML憑證更新費用繳納管道，新增線上繳費方式，請多加利用。</a
+                  >
+                </li>
+                <li class="news__item important">
+                  <span class="news__important"
+                    ><i class="icon-notice"></i>重要公告</span
+                  ><a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news312482"
+                    type="click"
+                    >自即日起，如經查於經濟部公司登記、商業登記已非正常營運狀態者，將暫停使用e企合成網權限</a
+                  >
+                </li>
+                <li class="news__item">
+                  <a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news313502"
+                    type="click"
+                    >115年度e企合成網手續費收費標準暨相關優惠方案</a
+                  >
+                </li>
+                <li class="news__item">
+                  <a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news310521"
+                    type="click"
+                    >請儘速更新「行動Safe
+                    Go」App版本(iOS：3.0.1；Android：3.0.0001)</a
+                  >
+                </li>
+                <li class="news__item">
+                  <a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news305629"
+                    type="click"
+                    >114年度e企合成網手續費收費標準暨相關優惠方案</a
+                  >
+                </li>
+                <li class="news__item">
+                  <a
+                    class="news__link"
+                    data-toggle="modal"
+                    data-target="#news301231"
+                    type="click"
+                    >客戶重要權益通知</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="section-relative">
+            <h2 class="section__header">相關連結</h2>
+            <div class="relative-link">
+              <a
+                class="relative-link__btn"
+                href="https://billing.bot.com.tw/Company/EBSupplier/Account/login"
+                target="_vendor"
+                type="click"
+              >
+                <div class="relative-link__icon">
+                  <svg
+                    width="35px"
+                    height="35px"
+                    viewBox="0 0 35 35"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>icon-partner</title>
+                    <desc>Created with Sketch.</desc>
+                    <g
+                      id="0410"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="icon-partner_group"
+                        transform="translate(-862.000000, -583.000000)"
+                      >
+                        <g
+                          id="Group-34"
+                          transform="translate(830.000000, 563.000000)"
+                        >
+                          <g
+                            id="Group-20"
+                            transform="translate(32.000000, 20.000000)"
+                          >
+                            <g id="Group-16">
+                              <g id="icon-partner">
+                                <path
+                                  class="color-primary"
+                                  id="primary-color"
+                                  d="M13.7996571,10.2857143 C13.8648,9.88457143 13.9813714,9.38914286 14.1853714,8.89885714 C14.7579429,7.524 15.7248,6.85714286 17.1425143,6.85714286 C19.5922286,6.85714286 20.2916571,9.03085714 20.4905143,10.2857143 L13.7979429,10.2857143 L13.7996571,10.2857143 Z M15.4282286,3.42857143 C15.4282286,2.484 16.1979429,1.71428571 17.1425143,1.71428571 C18.0870857,1.71428571 18.8568,2.484 18.8568,3.42857143 C18.8568,4.37314286 18.0870857,5.14285714 17.1425143,5.14285714 C16.1979429,5.14285714 15.4282286,4.37314286 15.4282286,3.42857143 L15.4282286,3.42857143 Z M22.2853714,11.0862857 C22.2785143,10.8017143 22.2202286,9.52628571 21.6853714,8.24057143 C21.3168,7.35942857 20.8025143,6.64971429 20.1562286,6.13371429 C19.9916571,6.00342857 19.8168,5.88342857 19.6368,5.77885714 C20.2162286,5.16342857 20.5710857,4.33885714 20.5710857,3.42857143 C20.5710857,1.53942857 19.0333714,0 17.1425143,0 C15.2533714,0 13.7139429,1.53942857 13.7139429,3.42857143 C13.7139429,4.33885714 14.0705143,5.16342857 14.6482286,5.77885714 C14.4699429,5.88342857 14.2950857,6.00342857 14.1288,6.13371429 C13.4825143,6.65314286 12.9699429,7.36285714 12.6013714,8.24057143 C12.0065143,9.67028571 11.9996571,11.0828571 11.9996571,11.1428571 C11.9996571,11.6142857 12.3836571,12 12.8568,12 L21.4282286,12 L21.4299429,12 C21.9030857,12 22.2870857,11.6142857 22.2870857,11.1428571 C22.2870857,11.1222857 22.2870857,11.1034286 22.2853714,11.0862857 L22.2853714,11.0862857 Z"
+                                  fill="#BC0059"
+                                ></path>
+                                <path
+                                  id="Fill-3"
+                                  d="M1.79965714,29.1428571 C1.8648,28.7417143 1.98137143,28.2462857 2.18537143,27.756 C2.75794286,26.3811429 3.7248,25.7142857 5.14251429,25.7142857 C7.59222857,25.7142857 8.29165714,27.888 8.49051429,29.1428571 L1.79794286,29.1428571 L1.79965714,29.1428571 Z M3.42822857,22.2857143 C3.42822857,21.3411429 4.19794286,20.5714286 5.14251429,20.5714286 C6.08708571,20.5714286 6.8568,21.3411429 6.8568,22.2857143 C6.8568,23.2302857 6.08708571,24 5.14251429,24 C4.19794286,24 3.42822857,23.2302857 3.42822857,22.2857143 L3.42822857,22.2857143 Z M10.2853714,29.9434286 C10.2785143,29.6588571 10.2202286,28.3834286 9.68537143,27.0977143 C9.3168,26.2165714 8.80251429,25.5102857 8.15622857,24.9908571 C7.99165714,24.8605714 7.8168,24.7405714 7.6368,24.636 C8.21622857,24.0205714 8.57108571,23.196 8.57108571,22.2857143 C8.57108571,20.3965714 7.03337143,18.8571429 5.14251429,18.8571429 C3.25337143,18.8571429 1.71394286,20.3965714 1.71394286,22.2857143 C1.71394286,23.196 2.07051429,24.0205714 2.64822857,24.636 C2.46994286,24.7405714 2.29508571,24.8605714 2.1288,24.9908571 C1.48251429,25.5102857 0.969942857,26.22 0.601371429,27.0977143 C0.00651428571,28.5274286 -0.000342857143,29.94 -0.000342857143,30 C-0.000342857143,30.4714286 0.383657143,30.8571429 0.8568,30.8571429 L9.42822857,30.8571429 L9.42994286,30.8571429 C9.90308571,30.8571429 10.2870857,30.4714286 10.2870857,30 C10.2870857,29.9794286 10.2870857,29.9605714 10.2853714,29.9434286 L10.2853714,29.9434286 Z"
+                                  fill="#000000"
+                                ></path>
+                                <path
+                                  id="Fill-6"
+                                  d="M25.7996571,29.1428571 C25.8648,28.7417143 25.9813714,28.2462857 26.1853714,27.756 C26.7579429,26.3811429 27.7248,25.7142857 29.1425143,25.7142857 C31.5922286,25.7142857 32.2916571,27.888 32.4905143,29.1428571 L25.7979429,29.1428571 L25.7996571,29.1428571 Z M27.4282286,22.2857143 C27.4282286,21.3411429 28.1979429,20.5714286 29.1425143,20.5714286 C30.0870857,20.5714286 30.8568,21.3411429 30.8568,22.2857143 C30.8568,23.2302857 30.0870857,24 29.1425143,24 C28.1979429,24 27.4282286,23.2302857 27.4282286,22.2857143 L27.4282286,22.2857143 Z M34.2853714,29.9434286 C34.2785143,29.6588571 34.2202286,28.3834286 33.6853714,27.0977143 C33.3168,26.2165714 32.8025143,25.5102857 32.1562286,24.9908571 C31.9916571,24.8605714 31.8168,24.7405714 31.6368,24.636 C32.2162286,24.0205714 32.5710857,23.196 32.5710857,22.2857143 C32.5710857,20.3965714 31.0333714,18.8571429 29.1425143,18.8571429 C27.2533714,18.8571429 25.7139429,20.3965714 25.7139429,22.2857143 C25.7139429,23.196 26.0705143,24.0205714 26.6482286,24.636 C26.4699429,24.7405714 26.2950857,24.8605714 26.1288,24.9908571 C25.4825143,25.5102857 24.9699429,26.22 24.6013714,27.0977143 C24.0065143,28.5274286 23.9996571,29.94 23.9996571,30 C23.9996571,30.4714286 24.3836571,30.8571429 24.8568,30.8571429 L33.4282286,30.8571429 L33.4299429,30.8571429 C33.9030857,30.8571429 34.2870857,30.4714286 34.2870857,30 C34.2870857,29.9794286 34.2870857,29.9605714 34.2853714,29.9434286 L34.2853714,29.9434286 Z"
+                                  fill="#000000"
+                                ></path>
+                                <path
+                                  id="Fill-8"
+                                  d="M17.1428571,34.2857143 C14.9142857,34.2857143 12.7011429,33.7371429 10.7434286,32.7017143 C10.3234286,32.4805714 10.164,31.9628571 10.3851429,31.5428571 C10.6062857,31.1245714 11.1257143,30.9668571 11.5422857,31.188 C13.2565714,32.0931429 15.192,32.5714286 17.1428571,32.5714286 C19.0937143,32.5714286 21.0291429,32.0931429 22.7434286,31.188 C23.16,30.9668571 23.6794286,31.1245714 23.9005714,31.5428571 C24.1217143,31.9628571 23.9622857,32.4805714 23.5422857,32.7017143 C21.5862857,33.7371429 19.3731429,34.2857143 17.1428571,34.2857143"
+                                  fill="#000000"
+                                ></path>
+                                <path
+                                  id="Fill-10"
+                                  d="M29.5362857,18 C29.1608571,18 28.8162857,17.7514286 28.7117143,17.3708571 C27.9162857,14.4908571 26.0785714,12.0205714 23.5431429,10.416 C23.1437143,10.1622857 23.0237143,9.636 23.2757143,9.23485714 C23.526,8.832 24.0574286,8.71542857 24.4568571,8.96571429 C27.3574286,10.7982857 29.4557143,13.62 30.3625714,16.9114286 C30.4894286,17.3674286 30.2202857,17.8422857 29.7642857,17.9657143 C29.6905714,17.9862857 29.6134286,17.9965714 29.5362857,17.9965714 L29.5362857,18 Z"
+                                  fill="#000000"
+                                ></path>
+                                <path
+                                  id="Fill-12"
+                                  d="M4.74942857,18 C4.67228571,18 4.59514286,17.9897143 4.52142857,17.9691429 C4.06542857,17.8422857 3.79628571,17.3708571 3.92314286,16.9148571 C4.83,13.6234286 6.92828571,10.8017143 9.82885714,8.96914286 C10.2265714,8.71542857 10.7562857,8.83542857 11.01,9.23485714 C11.2654286,9.636 11.1437143,10.1657143 10.7425714,10.4194286 C8.20542857,12.0205714 6.36771429,14.4908571 5.574,17.3708571 C5.46942857,17.7514286 5.12657143,18 4.74942857,18"
+                                  fill="#000000"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span class="relative-link__text">供應商專區</span>
+              </a>
+
+              <a
+                class="relative-link__btn"
+                target="_voice"
+                onclick="
+                  alert(
+                    '親愛的客戶您好：\n語音密碼網站已於110年8月25日停止服務，請改以電話銀行語音專線或申請本行「e企合成網」/「網路銀行」進行相關帳務查詢。\n\n電話銀行語音專線：0203-08999 (每分鐘1元)、02-21811900\n相關操作說明請至下方網頁查詢\nhttps://search.bot.com.tw/ebcboard/qnadetail.aspx?no=314\n(臺銀首頁/常見問題/主題類別：個人電子金融類/電話銀行)'
+                  )
+                "
+                type="click"
+              >
+                <div class="relative-link__icon">
+                  <svg
+                    width="32px"
+                    height="32px"
+                    viewBox="0 0 32 32"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>icon-contact</title>
+                    <defs>
+                      <polygon
+                        id="path-1"
+                        points="0.00064 0 31.9776 0 31.9776 32 0.00064 32"
+                      ></polygon>
+                    </defs>
+                    <g
+                      id="0410"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="icon-contact_group"
+                        transform="translate(-1067.000000, -584.000000)"
+                      >
+                        <g
+                          id="Group-34"
+                          transform="translate(830.000000, 563.000000)"
+                        >
+                          <g
+                            id="Group-31"
+                            transform="translate(196.000000, 0.000000)"
+                          >
+                            <g
+                              id="Group-3"
+                              transform="translate(41.000000, 21.000000)"
+                            >
+                              <g id="icon-contact">
+                                <path
+                                  class="color-primary"
+                                  id="icon-lock"
+                                  d="M27.17968,12 C27.17968,12.44 26.82128,12.8 26.37968,12.8 L19.97968,12.8 C19.53808,12.8 19.17968,12.44 19.17968,12 L19.17968,7.2 C19.17968,6.7568 19.53808,6.4 19.97968,6.4 L26.37968,6.4 C26.82128,6.4 27.17968,6.7568 27.17968,7.2 L27.17968,12 Z M23.17968,1.6 C24.50288,1.6 25.57968,2.6752 25.57968,4 L25.57968,4.8 L20.77968,4.8 L20.77968,4 C20.77968,2.6752 21.85648,1.6 23.17968,1.6 L23.17968,1.6 Z M27.17968,4.9376 L27.17968,4 C27.17968,1.7936 25.38448,0 23.17968,0 C20.97488,0 19.17968,1.7936 19.17968,4 L19.17968,4.9376 C18.24848,5.2656 17.57968,6.1568 17.57968,7.2 L17.57968,12 C17.57968,13.3216 18.65648,14.4 19.97968,14.4 L26.37968,14.4 C27.70288,14.4 28.77968,13.3216 28.77968,12 L28.77968,7.2 C28.77968,6.1568 28.11088,5.2656 27.17968,4.9376 L27.17968,4.9376 Z"
+                                  fill="#BC0059"
+                                ></path>
+                                <g id="icon-phone">
+                                  <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                  </mask>
+                                  <g id="Clip-4"></g>
+                                  <path
+                                    id="Fill-3"
+                                    d="M6.37024,1.6 C5.93984,1.6064 4.78784,2.1312 3.53344,3.288 C2.34144,4.384 1.60224,5.5776 1.60224,6.4 C1.60224,17.1664 14.82464,30.4 25.57984,30.4 C26.40064,30.4 27.59264,29.656 28.69024,28.4592 C29.84704,27.1968 30.37184,26.04 30.37984,25.6096 C30.32864,25.3056 29.48704,24.1216 27.18464,22.3504 C25.20384,20.8256 23.60064,20.0096 23.18784,20 C23.15904,20.0064 22.97984,20.0752 22.61664,20.5376 C22.30144,20.9376 21.96384,21.488 21.63584,22.0192 C20.73824,23.4752 19.89344,24.8528 18.66304,24.8528 C18.46464,24.8528 18.26944,24.816 18.08224,24.7408 C13.88384,23.0592 8.91584,18.0944 7.23584,13.8944 C7.03424,13.3904 7.00224,12.6 7.99424,11.6992 C8.52224,11.2224 9.25184,10.7744 9.95904,10.3376 C10.49024,10.0128 11.04064,9.6752 11.44064,9.3568 C11.90144,8.9936 11.97024,8.816 11.97824,8.7872 C11.96704,8.3744 11.15104,6.768 9.62784,4.7904 C7.85504,2.488 6.67104,1.6464 6.36864,1.5936 L6.37024,1.6 Z M25.57984,32 C22.74464,32 19.73184,31.1968 16.61984,29.6128 C13.75104,28.1504 10.91744,26.0592 8.42464,23.5664 C5.93184,21.0688 3.84384,18.232 2.38464,15.36 C0.80384,12.2464 0.00064,9.2336 0.00064,6.4 C0.00064,4.5632 1.71264,2.7872 2.44704,2.112 C3.50464,1.1376 5.16864,0 6.37824,0 C6.97984,0 7.68384,0.3936 8.59744,1.2368 C9.27584,1.8688 10.04384,2.7216 10.80864,3.7088 C11.27104,4.3024 13.57824,7.3408 13.57824,8.8 C13.57824,9.9936 12.22624,10.8256 10.79584,11.7056 C10.24224,12.0432 9.67104,12.3968 9.25824,12.728 C8.81664,13.0816 8.73664,13.2688 8.72544,13.3088 C10.24384,17.0944 14.88544,21.7376 18.66944,23.2528 C18.70304,23.2432 18.89024,23.168 19.25024,22.7216 C19.58144,22.3088 19.93344,21.7344 20.27104,21.184 C21.15264,19.7536 21.98304,18.4 23.17824,18.4 C24.63584,18.4 27.67264,20.7056 28.26944,21.168 C29.25504,21.9344 30.10944,22.7024 30.73824,23.3808 C31.58464,24.2944 31.97824,25 31.97824,25.6 C31.97824,26.8096 30.84064,28.4784 29.86784,29.5408 C29.18944,30.2816 27.41504,32 25.57824,32 L25.57984,32 Z"
+                                    fill="#000000"
+                                    mask="url(#mask-2)"
+                                  ></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span class="relative-link__text">語音密碼</span>
+              </a>
+
+              <a
+                class="relative-link__btn"
+                href="https://air.bot.com.tw/WebChat/"
+                target="_air"
+                type="click"
+              >
+                <div class="relative-link__icon">
+                  <svg
+                    width="45px"
+                    height="28px"
+                    viewBox="0 0 45 28"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>icon-discuss</title>
+                    <defs>
+                      <polygon
+                        id="path-1"
+                        points="0.845980149 0.024528536 29.8459801 0.024528536 29.8459801 24.2180769 0.845980149 24.2180769"
+                      ></polygon>
+                      <polygon
+                        id="path-3"
+                        points="0.249119107 0.255148883 27.8270468 0.255148883 27.8270468 24.2674315 0.249119107 24.2674315"
+                      ></polygon>
+                    </defs>
+                    <g
+                      id="0410"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="icon-discuss_group"
+                        transform="translate(-857.000000, -669.000000)"
+                      >
+                        <g
+                          id="Group-34"
+                          transform="translate(830.000000, 563.000000)"
+                        >
+                          <g
+                            id="Group-33"
+                            transform="translate(0.000000, 83.000000)"
+                          >
+                            <g
+                              id="Group-26"
+                              transform="translate(26.000000, 23.000000)"
+                            >
+                              <g id="icon-discuss">
+                                <g
+                                  id="Group-3"
+                                  transform="translate(0.000000, 0.033834)"
+                                >
+                                  <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                  </mask>
+                                  <g id="Clip-2"></g>
+                                  <path
+                                    id="Fill-1"
+                                    d="M15.0607444,15.8024069 C14.9178164,15.8024069 14.7804715,15.8571216 14.6755087,15.9565012 L9.4351861,20.9422333 C9.29672457,21.0684119 9.1482134,21.1074938 9.01533499,21.0494293 C8.89027295,20.9947146 8.75627792,20.8395037 8.75627792,20.5659305 L8.75627792,16.3607196 C8.75627792,16.052531 8.50727047,15.8024069 8.19796526,15.8024069 L6.95627792,15.8024069 C4.84027295,15.8024069 3.05255583,14.082804 3.05255583,12.047196 L3.05255583,4.96779156 C3.05255583,2.94223325 4.84027295,1.23156328 6.95627792,1.23156328 L23.8340695,1.23156328 C25.9154591,1.23156328 27.6071464,2.90761787 27.6071464,4.96779156 L27.6071464,12.047196 C27.6071464,14.1174194 25.9154591,15.8024069 23.8340695,15.8024069 L15.0607444,15.8024069 Z M28.7237717,12.047196 L28.7237717,4.96779156 C28.7237717,2.29124069 26.5307196,0.114937965 23.8340695,0.114937965 L6.95627792,0.114937965 C4.23506203,0.114937965 1.93593052,2.33702233 1.93593052,4.96779156 L1.93593052,12.047196 C1.93593052,14.6880149 4.23506203,16.9190323 6.95627792,16.9190323 L7.63965261,16.9190323 L7.63965261,20.5659305 C7.63965261,21.2437221 7.99473945,21.822134 8.56645161,22.0722581 C8.74957816,22.1526551 8.94275434,22.191737 9.1348139,22.191737 C9.51,22.191737 9.88741935,22.0432258 10.1978412,21.7573697 L15.2840695,16.9190323 L23.8340695,16.9190323 C26.5307196,16.9190323 28.7237717,14.7337965 28.7237717,12.047196 L28.7237717,12.047196 Z"
+                                    stroke="#000000"
+                                    stroke-width="0.5"
+                                    fill="#231F20"
+                                    mask="url(#mask-2)"
+                                  ></path>
+                                </g>
+                                <path
+                                  class="color-primary"
+                                  id="primary-color"
+                                  d="M22.0744913,10.2007444 L8.19818859,10.2007444 C7.89,10.2007444 7.63987593,10.4508685 7.63987593,10.7590571 C7.63987593,11.0672457 7.89,11.3173697 8.19818859,11.3173697 L22.0744913,11.3173697 C22.3826799,11.3173697 22.632804,11.0672457 22.632804,10.7590571 C22.632804,10.4508685 22.3826799,10.2007444 22.0744913,10.2007444"
+                                  stroke="#BC0059"
+                                  stroke-width="0.5"
+                                  fill="#BC0059"
+                                ></path>
+                                <path
+                                  class="color-primary"
+                                  id="primary-color"
+                                  d="M22.0744913,5.73424318 L8.19818859,5.73424318 C7.89,5.73424318 7.63987593,5.98436725 7.63987593,6.29255583 C7.63987593,6.60074442 7.89,6.85086849 8.19818859,6.85086849 L22.0744913,6.85086849 C22.3826799,6.85086849 22.632804,6.60074442 22.632804,6.29255583 C22.632804,5.98436725 22.3826799,5.73424318 22.0744913,5.73424318"
+                                  stroke="#BC0059"
+                                  stroke-width="0.5"
+                                  fill="#BC0059"
+                                ></path>
+                                <g
+                                  id="Group-10"
+                                  transform="translate(18.684864, 4.649218)"
+                                >
+                                  <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                  </mask>
+                                  <g id="Clip-9"></g>
+                                  <path
+                                    id="Fill-8"
+                                    d="M21.8379531,0.255148883 L11.1462656,0.255148883 C11.1462656,0.287531017 11.1563153,0.318796526 11.1563153,0.352295285 L11.1563153,1.37177419 L21.8379531,1.37177419 C23.9550747,1.37177419 25.7427918,3.08244417 25.7427918,5.10800248 L25.7427918,12.1874069 C25.7427918,14.2230149 23.9550747,15.9426179 21.8379531,15.9426179 L20.5962657,15.9426179 C20.2869605,15.9426179 20.0379531,16.1916253 20.0379531,16.5009305 L20.0379531,20.7050248 C20.0379531,20.9797146 19.903958,21.1349256 19.778896,21.1896402 C19.6493675,21.2454715 19.498623,21.2097395 19.3668613,21.0880273 L14.1187222,16.0967122 C14.0148761,15.9973325 13.8775312,15.9426179 13.7334865,15.9426179 L4.96016134,15.9426179 C3.31537224,15.9426179 1.92852359,14.8840571 1.41264269,13.4201613 L0.249119107,13.4201613 C0.800732016,15.5082506 2.69341194,17.0592432 4.96016134,17.0592432 L13.5101614,17.0592432 L18.6042062,21.9042804 C18.9090449,22.18567 19.284231,22.3319479 19.6583005,22.3319479 C19.8514766,22.3319479 20.0446528,22.292866 20.2277794,22.212469 C20.7994915,21.9612283 21.1545784,21.383933 21.1545784,20.7050248 L21.1545784,17.0592432 L21.8379531,17.0592432 C24.5602856,17.0592432 26.8594172,14.8282258 26.8594172,12.1874069 L26.8594172,5.10800248 C26.8594172,2.47723325 24.5602856,0.255148883 21.8379531,0.255148883"
+                                    stroke="#000000"
+                                    stroke-width="0.5"
+                                    fill="#231F20"
+                                    mask="url(#mask-4)"
+                                  ></path>
+                                </g>
+                                <path
+                                  class="color-primary"
+                                  id="primary-color"
+                                  d="M31.4687717,16.7609181 C31.4754715,16.7676179 31.4788213,16.7776675 31.4855211,16.7843672 C31.5201365,16.8167494 31.5614516,16.8334988 31.6016501,16.8558313 C31.6195161,16.8669975 31.6340323,16.880397 31.6530149,16.8882134 C31.721129,16.9172457 31.7937097,16.9328784 31.8651737,16.9328784 L31.8662903,16.9328784 L31.8674069,16.9328784 C31.9377543,16.9328784 32.0081017,16.9172457 32.0750993,16.8904467 C32.0940819,16.8826303 32.1074814,16.8703474 32.1242308,16.8602978 C32.1644293,16.8390819 32.2046278,16.8223325 32.2392432,16.7899504 C32.2470596,16.7843672 32.2504094,16.7743176 32.2582258,16.7665012 C32.2626923,16.7609181 32.2693921,16.7598015 32.2749752,16.7542184 L37.7944541,10.8093052 C38.0043797,10.5837469 37.9909801,10.2297767 37.7654218,10.0209677 C37.5398635,9.80880893 37.1858933,9.82332506 36.9770844,10.05 L31.8741067,15.5460298 L29.778201,13.2078164 C29.7648015,13.1933002 29.7458189,13.1854839 29.7301861,13.1720844 C29.6497891,13.6042184 29.5314268,14.0240695 29.3628164,14.4182382 L31.4509057,16.7475186 C31.4564888,16.7531017 31.4643052,16.755335 31.4687717,16.7609181"
+                                  stroke="#BC0059"
+                                  stroke-width="0.5"
+                                  fill="#BC0059"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span class="relative-link__text">智能客服</span>
+              </a>
+
+              <a
+                class="relative-link__btn hide-padP"
+                href="/BOT_CIB_B2C_WEB/common/login/FPO05003_1.faces"
+                target="_new"
+                type="click"
+              >
+                <div class="relative-link__icon">
+                  <svg
+                    width="36px"
+                    height="31px"
+                    viewBox="0 0 36 31"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>icon-mac</title>
+                    <defs>
+                      <polygon
+                        id="path-1"
+                        points="0 0 32.1716609 0 32.1716609 30.5652174 0 30.5652174"
+                      ></polygon>
+                      <polygon
+                        id="path-3"
+                        points="0.899904348 0.449253071 14.6375217 0.449253071 14.6375217 13.6380043 0.899904348 13.6380043"
+                      ></polygon>
+                    </defs>
+                    <g
+                      id="0410"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="icon-mac_group"
+                        transform="translate(-1067.000000, -668.000000)"
+                      >
+                        <g
+                          id="Group-34"
+                          transform="translate(830.000000, 563.000000)"
+                        >
+                          <g
+                            id="Group-32"
+                            transform="translate(196.000000, 83.000000)"
+                          >
+                            <g
+                              id="Group-30"
+                              transform="translate(41.000000, 22.000000)"
+                            >
+                              <g id="icon-mac">
+                                <g id="Group-3">
+                                  <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                  </mask>
+                                  <g id="Clip-2"></g>
+                                  <path
+                                    id="Fill-1"
+                                    d="M10.9481391,28.9565217 C10.9980087,28.8648261 11.0478783,28.7747391 11.0945304,28.6798261 L12.5648783,25.7391304 L19.6157913,25.7391304 L21.0877478,28.6798261 L21.0845304,28.6798261 C21.1295739,28.7747391 21.1778348,28.8648261 21.229313,28.9565217 L10.9481391,28.9565217 Z M30.5645739,22.660087 L30.5645739,23.326087 C30.5645739,23.7684783 30.2058348,24.1304348 29.7602261,24.1304348 L2.4124,24.1304348 C1.9684,24.1304348 1.60805217,23.7684783 1.60805217,23.326087 L1.60805217,19.3043478 L24.4386609,19.3043478 C24.4772696,19.0694783 24.443487,18.8217391 24.3180087,18.6045652 C24.0638348,18.167 23.5136609,17.9578696 23.0149652,18.1476957 C22.8074435,18.2281304 22.5709652,18.2136522 22.371487,18.1123043 C22.2057913,18.0254348 22.0931826,17.8726087 22.0256174,17.6956522 L1.60805217,17.6956522 L1.60805217,2.41304348 C1.60805217,1.96743478 1.9684,1.60869565 2.4124,1.60869565 L29.7602261,1.60869565 C30.2058348,1.60869565 30.5645739,1.96743478 30.5645739,2.41304348 L30.5645739,9.51221739 C30.6176609,9.51704348 30.6691391,9.5106087 30.7190087,9.52508696 C31.2257478,9.68434783 31.7131826,9.90795652 32.1716609,10.1798261 L32.1716609,2.41304348 C32.1716609,1.08104348 31.0906174,0 29.7586174,0 L2.4124,0 C1.0820087,0 -0.000643478261,1.08104348 -0.000643478261,2.41304348 L-0.000643478261,23.326087 C-0.000643478261,24.6548696 1.0820087,25.7391304 2.4124,25.7391304 L10.7647478,25.7391304 L9.65153043,27.9607391 C9.39735652,28.4723043 9.13192174,28.8342609 8.99357391,28.9822609 C8.64931304,29.0755652 8.39513913,29.3876522 8.39513913,29.7608696 C8.39513913,30.2032609 8.75709565,30.5652174 9.19948696,30.5652174 L22.9731391,30.5652174 C23.4155304,30.5652174 23.777487,30.2032609 23.777487,29.7608696 C23.777487,29.3876522 23.5217043,29.0723478 23.1790522,28.9822609 C23.0407043,28.8342609 22.7768783,28.4723043 22.519487,27.9607391 L21.4078783,25.7391304 L29.7586174,25.7391304 C31.0906174,25.7391304 32.1716609,24.6548696 32.1716609,23.326087 L32.1716609,21.9908696 C31.7131826,22.2627391 31.2257478,22.4879565 30.7206174,22.6472174 C30.6691391,22.6616957 30.6176609,22.6552609 30.5645739,22.660087 L30.5645739,22.660087 Z"
+                                    fill="#000000"
+                                    mask="url(#mask-2)"
+                                  ></path>
+                                </g>
+                                <path
+                                  id="Fill-4"
+                                  d="M16.8911435,20.9130435 L15.2824478,20.9130435 C14.8384478,20.9130435 14.4781,21.2717826 14.4781,21.7173913 C14.4781,22.1597826 14.8384478,22.5217391 15.2824478,22.5217391 L16.8911435,22.5217391 C17.3351435,22.5217391 17.6954913,22.1597826 17.6954913,21.7173913 C17.6954913,21.2717826 17.3351435,20.9130435 16.8911435,20.9130435"
+                                  fill="#000000"
+                                ></path>
+                                <g
+                                  id="Group-8"
+                                  transform="translate(20.913043, 9.043478)"
+                                >
+                                  <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                  </mask>
+                                  <g id="Clip-7"></g>
+                                  <path
+                                    class="color-primary"
+                                    id="primary-color"
+                                    d="M13.0761217,7.49117826 L13.0503826,7.49117826 C12.3747304,7.49117826 11.737687,7.76143913 11.2599043,8.2150913 C11.0813391,8.38400435 10.9220783,8.57383043 10.7966,8.79100435 C10.4829043,9.33796087 10.3767304,9.97500435 10.4957739,10.5830913 C10.5520783,10.8790913 10.6582522,11.1573957 10.8094696,11.4131783 C10.5649478,11.5853087 10.3043391,11.7365261 10.0324696,11.863613 C9.93433913,11.6882652 9.78955652,11.5467 9.65281739,11.3987 C9.58846957,11.3279174 9.54503478,11.2394391 9.47264348,11.1783087 C9.00129565,10.7664826 8.39481739,10.5412652 7.76742609,10.5412652 C7.14003478,10.5412652 6.53355652,10.7664826 6.0622087,11.1783087 C5.8386,11.3713522 5.64716522,11.6078304 5.50238261,11.863613 C5.23051304,11.7365261 4.96990435,11.5853087 4.72377391,11.4131783 C4.8749913,11.1573957 4.98116522,10.8774826 5.03746957,10.5830913 C5.05838261,10.4753087 5.03425217,10.3691348 5.04229565,10.2613522 C5.07446957,9.74817826 4.99564348,9.23661304 4.73664348,8.79100435 C4.70607826,8.73791739 4.66264348,8.70091739 4.63046957,8.65265652 C4.15107826,7.93839565 3.35155652,7.49117826 2.48446957,7.49117826 L2.45873043,7.49117826 C2.44586087,7.34317826 2.43942609,7.19356957 2.43942609,7.04235217 C2.43942609,6.88791739 2.44586087,6.73991739 2.45712174,6.59191739 L2.48446957,6.59191739 C3.40946957,6.59191739 4.27333913,6.09483043 4.73664348,5.2920913 C5.05194783,4.74674348 5.15812174,4.1097 5.03746957,3.50161304 C4.98277391,3.20561304 4.8766,2.9273087 4.72377391,2.66991739 C4.96829565,2.49778696 5.22890435,2.34817826 5.50077391,2.21948261 C5.64555652,2.47848261 5.83538261,2.70691739 6.0622087,2.90478696 C6.53355652,3.31661304 7.14003478,3.54343913 7.76742609,3.54343913 C8.3932087,3.54343913 8.99807826,3.31661304 9.47264348,2.90478696 C9.54503478,2.84204783 9.58846957,2.75517826 9.65281739,2.68600435 L9.65281739,2.68439565 C9.78955652,2.53639565 9.93433913,2.39483043 10.0324696,2.21948261 C10.3043391,2.34817826 10.5649478,2.49778696 10.8094696,2.66991739 C10.6598609,2.9257 10.5520783,3.21043913 10.4957739,3.50161304 C10.3767304,4.1113087 10.484513,4.74835217 10.7966,5.2920913 C10.923687,5.50926522 11.0813391,5.6990913 11.2599043,5.86639565 C11.737687,6.32165652 12.3747304,6.59191739 13.0503826,6.59191739 L13.0761217,6.59191739 C13.0889913,6.73991739 13.0954261,6.88791739 13.0954261,7.04235217 C13.0954261,7.19356957 13.0889913,7.34478696 13.0761217,7.49117826 M14.4692522,5.52535217 C14.4177739,5.30656957 14.2762087,5.11835217 14.0783391,5.01378696 C13.8804696,4.91083043 13.6456,4.89635217 13.4316435,4.97839565 C12.9747739,5.17143913 12.3892087,4.96552609 12.1334261,4.52474348 C11.8728174,4.0727 11.9822087,3.49035217 12.3892087,3.16700435 C12.5629478,3.02704783 12.667513,2.81791739 12.6771652,2.5927 C12.6852087,2.3690913 12.5967304,2.15513478 12.4310348,2.0007 C12.0739043,1.67091739 11.6781652,1.38456957 11.2599043,1.13683043 C10.7998174,0.86496087 10.3123826,0.639743478 9.80403478,0.482091304 C9.75416522,0.467613043 9.70268696,0.474047826 9.65281739,0.469221739 L9.6512087,0.469221739 L9.6512087,0.469221739 C9.48229565,0.453134783 9.31338261,0.474047826 9.1686,0.562526087 C8.98038261,0.683178261 8.85168696,0.87943913 8.81629565,1.10304783 C8.73907826,1.61622174 8.28703478,2.0023087 7.76903478,2.0023087 C7.2462087,2.0023087 6.79738261,1.61622174 6.72177391,1.10143913 C6.6879913,0.882656522 6.55929565,0.686395652 6.36786087,0.562526087 C6.17803478,0.4467 5.9479913,0.419352174 5.73081739,0.482091304 C4.76238261,0.782917391 3.85507826,1.30735217 3.10703478,2.0007 C2.94133913,2.15352609 2.85125217,2.3690913 2.85929565,2.5910913 C2.86573043,2.8147 2.97190435,3.02543913 3.15046957,3.16700435 C3.55425217,3.49035217 3.66364348,4.0727 3.40464348,4.52474348 C3.14725217,4.96552609 2.56812174,5.17787391 2.1032087,4.97839565 C1.89246957,4.89956957 1.6576,4.90922174 1.45812174,5.01539565 C1.26025217,5.11835217 1.11868696,5.30656957 1.0672087,5.52535217 C0.956208696,6.02083043 0.899904348,6.53078696 0.899904348,7.04235217 C0.899904348,7.5490913 0.956208696,8.06065652 1.0672087,8.55452609 C1.07686087,8.59152609 1.09938261,8.61726522 1.11225217,8.65265652 C1.17981739,8.82961304 1.29242609,8.98243913 1.45812174,9.0677 C1.6576,9.17065652 1.89407826,9.18513478 2.1016,9.1047 C2.60029565,8.91487391 3.15046957,9.12400435 3.40464348,9.56156957 C3.53012174,9.77874348 3.56390435,10.0264826 3.52529565,10.2613522 C3.48507826,10.5123087 3.3579913,10.748787 3.15046957,10.9177 C2.97512174,11.0560478 2.86894783,11.266787 2.85929565,11.4920043 C2.85125217,11.715613 2.94133913,11.9311783 3.10703478,12.085613 C3.85668696,12.7773522 4.7639913,13.301787 5.7292087,13.6042217 C5.75173043,13.6106565 5.77264348,13.6170913 5.79677391,13.6219174 L5.95764348,13.6380043 C6.10242609,13.6380043 6.2439913,13.597787 6.36786087,13.5189609 C6.55768696,13.4031348 6.68638261,13.2068739 6.72338261,12.9800478 C6.7989913,12.4684826 7.24781739,12.080787 7.76903478,12.080787 C8.28864348,12.080787 8.73907826,12.4684826 8.81629565,12.9816565 C8.85168696,13.2068739 8.98038261,13.4015261 9.1669913,13.5173522 C9.31177391,13.6106565 9.48229565,13.6315696 9.65281739,13.6170913 C9.70429565,13.6122652 9.75577391,13.6187 9.80725217,13.6042217 C10.3139913,13.4449609 10.7998174,13.2197435 11.2599043,12.9478739 C11.6765565,12.7001348 12.0739043,12.4153957 12.4310348,12.085613 C12.5967304,11.9311783 12.6852087,11.7140043 12.6771652,11.493613 C12.6707304,11.2700043 12.5661652,11.0592652 12.3876,10.9177 C11.9838174,10.5943522 11.8728174,10.0103957 12.1318174,9.56156957 C12.3859913,9.12400435 12.9442087,8.91648261 13.4332522,9.1030913 C13.6407739,9.18513478 13.8756435,9.17548261 14.0767304,9.0677 C14.2762087,8.96635217 14.4177739,8.77974348 14.4692522,8.55613478 C14.5818609,8.06387391 14.6381652,7.55552609 14.6381652,7.04235217 C14.6381652,6.53722174 14.5818609,6.02887391 14.4692522,5.52535217"
+                                    fill="#BC0059"
+                                    mask="url(#mask-4)"
+                                  ></path>
+                                </g>
+                                <path
+                                  id="Fill-9"
+                                  d="M28.6807913,16.5346565 C28.4330522,16.5346565 28.2319652,16.3319609 28.2319652,16.0858304 C28.2319652,15.8380913 28.4330522,15.6353957 28.6807913,15.6353957 C28.9285304,15.6353957 29.1296174,15.8380913 29.1296174,16.0858304 C29.1296174,16.3319609 28.9285304,16.5346565 28.6807913,16.5346565 M28.6807913,14.0942652 C27.5820522,14.0942652 26.6892261,14.9870913 26.6892261,16.0858304 C26.6892261,17.1813522 27.5820522,18.0741783 28.6807913,18.0741783 C29.7779217,18.0741783 30.6707478,17.1813522 30.6707478,16.0858304 C30.6707478,14.9870913 29.7779217,14.0942652 28.6807913,14.0942652"
+                                  fill="#BC0059"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span class="relative-link__text">環境檢測</span>
+              </a>
+            </div>
+          </section>
+          <section class="section-relative-av">
+            <a
+              id="adLink_1"
+              class="av__link"
+              href="https://event.bot.com.tw/digital-deposit/campaign/6"
+              target="_blank"
+              rel="noopener noreferrer"
+              type="click"
+              ><img
+                id="adSrc_1"
+                src="https://nemarketing.bot.com.tw/api/GetFile/nlAAOGzzS62N3HfDBZGglQ=="
+                alt="1"
+                onerror="this.src = '/BOT_CIB_B2C_WEB/images/av1.png'" /></a
+            ><a
+              id="adLink_2"
+              class="av__link"
+              href="https://enotice.bot.com.tw/ibank/"
+              target="_blank"
+              rel="noopener noreferrer"
+              type="click"
+              ><img
+                id="adSrc_2"
+                src="https://nemarketing.bot.com.tw/api/GetFile/GAG2__Xm1kFI8xMJvG-OWA=="
+                alt="2"
+                onerror="this.src = '/BOT_CIB_B2C_WEB/images/av2.png'"
+            /></a>
+          </section>
+        </div>
+        <input
+          id="form1:adblockLink_1"
+          type="hidden"
+          name="form1:adblockLink_1"
+          value="https://event.bot.com.tw/digital-deposit/campaign/6"
+        /><input
+          id="form1:adblockSrc_1"
+          type="hidden"
+          name="form1:adblockSrc_1"
+          value="https://nemarketing.bot.com.tw/api/GetFile/nlAAOGzzS62N3HfDBZGglQ=="
+        /><input
+          id="form1:adblockLink_2"
+          type="hidden"
+          name="form1:adblockLink_2"
+          value="https://enotice.bot.com.tw/ibank/"
+        /><input
+          id="form1:adblockSrc_2"
+          type="hidden"
+          name="form1:adblockSrc_2"
+          value="https://nemarketing.bot.com.tw/api/GetFile/GAG2__Xm1kFI8xMJvG-OWA=="
+        />
+      </main>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__menu">
+          <a
+            href="https://enotice.bot.com.tw/BotSecAnnounce/Common_Home_Security.html"
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >安全宣告</a
+          >
+          <a
+            href="https://www.bot.com.tw/tw/footer/customer-service/integrity-whistleblower-hotline"
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >便民服務</a
+          >
+          <a
+            href="https://www.bot.com.tw/tw/personal-banking"
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >佈告欄區</a
+          >
+          <a
+            href="https://www.bot.com.tw/tw/locations "
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >服務據點</a
+          >
+          <a
+            href="https://www.bot.com.tw/tw/footer/related-links/privacy-protection "
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >隱私保護</a
+          >
+          <a
+            href="https://www.bot.com.tw/tw/footer/related-links/copyright-notice"
+            class="footer__menu__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            type="click"
+            >版權宣告</a
+          >
+        </div>
+        <p class="footer_p1">
+          臺灣銀行 版權所有Bank of Taiwan All Rights Reserved.
+        </p>
+        <p class="footer_p2">
+          如有任何問題或建議，營業時間內可洽各分行<span class="fpurple1"
+            >(<a
+              href="https://www.bot.com.tw/tw/locations"
+              target="_blank"
+              type="click"
+              >分行聯絡電話</a
+            >)</span
+          >，非營業時間請洽24小時服務電話(<span class="fpurple1"
+            >客服中心留存客戶聯絡方式後由分行專員儘速回電</span
+          >)：0800-025-168(限市話)、02-21910025、E-mail
+          <span class="fpurple1"
+            >(<a
+              href="https://wwwap.bot.com.tw/mailbox/mail.aspx"
+              target="_blank"
+              type="click"
+              >臺灣銀行客服中心</a
+            >)</span
+          >
+        </p>
+      </div>
+      <div class="footer_insurance">
+        <a
+          href="https://www.cdic.gov.tw/main_ch/chinese.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          type="click"
+          ><img src="/BOT_CIB_B2C_WEB/images/insurance.jpg"
+        /></a>
+      </div>
+    </footer>
+
+    <a class="btn-gotop smooth" href="#top" type="click"
+      ><i class="icon-top"></i
+    ></a>
+    <div class="overlayer modal" id="news314102">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/12/02 ~ 2025/12/04</div>
+          <div class="modal__body__title">
+            114年12月4日(星期四)17:00~21:00暫停歷史交易明細查詢服務
+          </div>
+          <div class="modal__body__content">
+            本行將於114年12月4日(星期四)17:00~21:00進行系統維護作業，期間e企合成網歷史交易明細查詢功能將暫停服務，造成不便，敬請見諒。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news313734">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/11/12 ~ 2026/06/30</div>
+          <div class="modal__body__title">
+            本行e企合成網─企業外匯服務之匯出匯款及匯入匯款作業自2025年11月17日起全面使用MX（ISO
+            20022）格式，相關格式請至企業外匯服務下載參考。
+          </div>
+          <div class="modal__body__content">
+            親愛的客戶您好：
+            <br />為提升服務品質，本行e企合成網─企業外匯服務之匯出匯款及匯入匯款作業自2025年11月17日起全面使用MX（ISO
+            20022）格式，相關格式說明請至企業外匯服務各作業下載參考。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news313592">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/11/04 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            (請詳閱內容！)因Google
+            Chrome最新142版本啟用「區域網路存取權」檢核，請於轉帳交易時允許瀏覽器視窗「尋找區域網路上的任何裝置並連線」之權限請求
+          </div>
+          <div class="modal__body__content">
+            因Google
+            Chrome於10月28日發布最新142版本啟用「區域網路存取權」檢核，請於執行相關轉帳交易時，允許瀏覽器視窗「尋找區域網路上的任何裝置並連線」之權限請求。如選擇封鎖，將導致系統判斷元件狀態未安裝而影響交易，請至資源下載區參閱「chrome升級後e企合成網放行問題排除方法」操作手冊解除封鎖。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news313519">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/10/31 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            e企合成網企業外匯及專用系統super
+            e-billing，使用chrome放行出現「IFX簽章模組不正確」，請改用其他瀏覽器(edge、firefox)放行。
+          </div>
+          <div class="modal__body__content">
+            親愛的客戶您好: e企合成網企業外匯及專用系統super
+            e-billing，使用chrome放行出現「IFX簽章模組不正確」、「ServiSign元件載入失敗錯誤訊息代碼為61006」錯誤，請改用其他瀏覽器(例如edge、firefox)放行，造成不便，敬請見諒。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news313495">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/10/30 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            自即日起，本行金融XML憑證更新費用繳納管道，新增線上繳費方式，請多加利用。
+          </div>
+          <div class="modal__body__content">
+            一、持有本行金融XML憑證，於到期前30天內，將收到系統自動發送之憑證更新通知，即可至e企合成網-轉帳付款
+            &gt; 繳稅繳費(或大額繳稅繳費) &gt;
+            XML憑證展期費用功能(下稱本功能)進行線上繳費，繳費完成後，即可進行憑證展期作業。
+            <br />二、執行本功能時，如以小額繳稅費進行，則簡易轉帳必須開啟非約定轉帳或繳稅繳費服務；若以大額繳稅費進行，則一般轉帳必須開啟非約定轉帳服務。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news312482">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/09/05 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            自即日起，如經查於經濟部公司登記、商業登記已非正常營運狀態者，將暫停使用e企合成網權限
+          </div>
+          <div class="modal__body__content">
+            親愛的客戶您好，本行「e企合成網」為配合政府打詐政策，對經查經濟部公司登記、商業登記已非正常營運狀態者(如停業、歇業、廢止、撤銷、解散…等)，將暫停使用e企合成網權限。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news313502">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/10/30 ~ 2026/12/31</div>
+          <div class="modal__body__title">
+            115年度e企合成網手續費收費標準暨相關優惠方案
+          </div>
+          <div class="modal__body__content">
+            115年度e企合成網手續費收費標準暨相關優惠方案，請進入e企合成網首頁上方之「資源下載」中下載查看。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news310521">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2025/07/31 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            請儘速更新「行動Safe Go」App版本(iOS：3.0.1；Android：3.0.0001)
+          </div>
+          <div class="modal__body__content">
+            本行「臺灣銀行行動Safe
+            Go」App已提供升級版本(APP升級後版號：iOS：3.0.1；Android：3.0.0001)，請儘速至「App
+            Store」或「Play商店」點擊更新並完成升級。 ※如無法正常登入「行動Safe
+            Go」或出現連線失敗訊息，請先檢查是否已完成APP更新
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news305629">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2024/10/30 ~ 2025/12/31</div>
+          <div class="modal__body__title">
+            114年度e企合成網手續費收費標準暨相關優惠方案
+          </div>
+          <div class="modal__body__content">
+            114年度e企合成網手續費收費標準暨相關優惠方案，請進入e企合成網首頁上方之「資源下載」中下載查看。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlayer modal" id="news301231">
+      <div class="modal__wrapper">
+        <div class="modal__title">
+          最新消息<a
+            class="modal__close"
+            href="#"
+            data-dismiss="modal"
+            type="click"
+            ><b></b><b></b
+          ></a>
+        </div>
+        <div class="modal__body">
+          <div class="modal__body__date">2023/04/20 ~ 2099/10/31</div>
+          <div class="modal__body__title">客戶重要權益通知</div>
+          <div class="modal__body__content">
+            <a
+              href="https://www.bot.com.tw/tw/share/a2bc91ce-f61d-ed11-bd3f-d6349fe3548c"
+              target="_blank"
+              title="客戶重要權益通知"
+              type="click"
+              >客戶重要權益通知(請點擊檢視)</a
+            >。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dynamic-keyboard"
+      id="dynamic-keyboard"
+      data-input-field="form1:UUID"
+      style="top: 252px; left: 642.672px"
+    >
+      <div class="dynamic-keyboard__title">
+        <span>螢幕鍵盤</span
+        ><a class="dynamic-keyboard__close" type="click"><b></b><b></b></a>
+      </div>
+      <div class="dynamic-keyboard__key">
+        <span class="dynamic-keyboard__key--numeric">1</span
+        ><span class="dynamic-keyboard__key--numeric">2</span
+        ><span class="dynamic-keyboard__key--numeric">3</span
+        ><span class="dynamic-keyboard__key--numeric">4</span
+        ><span class="dynamic-keyboard__key--numeric">5</span
+        ><span class="dynamic-keyboard__key--numeric">6</span
+        ><span class="dynamic-keyboard__key--numeric">7</span
+        ><span class="dynamic-keyboard__key--numeric">8</span
+        ><span class="dynamic-keyboard__key--numeric">9</span
+        ><span class="dynamic-keyboard__key--numeric">0</span
+        ><span class="dynamic-keyboard__key--alphabet">a</span
+        ><span class="dynamic-keyboard__key--alphabet">b</span
+        ><span class="dynamic-keyboard__key--alphabet">c</span
+        ><span class="dynamic-keyboard__key--alphabet">d</span
+        ><span class="dynamic-keyboard__key--alphabet">e</span
+        ><span class="dynamic-keyboard__key--alphabet">f</span
+        ><span class="dynamic-keyboard__key--alphabet">g</span
+        ><span class="dynamic-keyboard__key--alphabet">h</span
+        ><span class="dynamic-keyboard__key--alphabet">i</span
+        ><span class="dynamic-keyboard__key--alphabet">j</span
+        ><span class="dynamic-keyboard__key--alphabet">k</span
+        ><span class="dynamic-keyboard__key--alphabet">l</span
+        ><span class="dynamic-keyboard__key--alphabet">m</span
+        ><span class="dynamic-keyboard__key--alphabet">n</span
+        ><span class="dynamic-keyboard__key--alphabet">o</span
+        ><span class="dynamic-keyboard__key--alphabet">p</span
+        ><span class="dynamic-keyboard__key--alphabet">q</span
+        ><span class="dynamic-keyboard__key--alphabet">r</span
+        ><span class="dynamic-keyboard__key--alphabet">s</span
+        ><span class="dynamic-keyboard__key--alphabet">t</span
+        ><span class="dynamic-keyboard__key--alphabet">u</span
+        ><span class="dynamic-keyboard__key--alphabet">v</span
+        ><span class="dynamic-keyboard__key--alphabet">w</span
+        ><span class="dynamic-keyboard__key--alphabet">x</span
+        ><span class="dynamic-keyboard__key--alphabet">y</span
+        ><span class="dynamic-keyboard__key--alphabet">z</span
+        ><span class="dynamic-keyboard__key dynamic-keyboard__key--upercase"
+          >大寫</span
+        ><span class="dynamic-keyboard__key dynamic-keyboard__key--lowercase"
+          >小寫</span
+        >
+      </div>
+      <div class="dynamic-keyboard__footer">
+        <a class="dynamic-keyboard__reset" type="click">清除</a>
+      </div>
+    </div>
+    <div class="overlayer modal" id="stockboard--modal">
+      <div class="modal__wrapper">
+        <div class="modal__body stockboard-modal">
+          <a class="modal__close" href="#" data-dismiss="modal" type="click"
+            ><b></b><b></b
+          ></a>
+
+          ﻿
+
+          <div class="stockboard__group">
+            <div class="stockboard__head">匯利率</div>
+            <ul class="stockboard__body">
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/ir?Lang=zh-TW')"
+                  type="click"
+                  >外匯存款牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/ir?Lang=zh-TW')"
+                  type="click"
+                  >外匯歷史存款牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/use?Lang=zh-TW')"
+                  type="click"
+                  >外幣遠期信用狀牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/xrt?Lang=zh-TW')"
+                  type="click"
+                  >牌告匯率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://rate.bot.com.tw/xrt/history?Lang=zh-TW')
+                  "
+                  type="click"
+                  >歷史匯率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/cr?Lang=zh-TW')"
+                  type="click"
+                  >外幣結帳價格表</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/twd?Lang=zh-TW')"
+                  type="click"
+                  >新臺幣存(放)款牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://wwwap.bot.com.tw/NcdNet/Ncd.aspx')"
+                  type="click"
+                  >可轉讓定期存單牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink(
+                      'https://www.bot.com.tw/tw/footer/information-disclosure/legal-disclaimers/consumer-loan'
+                    )
+                  "
+                  type="click"
+                  >消費者貸款牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink(
+                      'https://wwwap.bot.com.tw/securities/securities.aspx'
+                    )
+                  "
+                  type="click"
+                  >短期票券利率表</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://wwwap.bot.com.tw/Fund/FundRate.aspx')
+                  "
+                  type="click"
+                  >公債附條件交易利率</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="stockboard__group">
+            <div class="stockboard__head">黃金牌價</div>
+            <ul class="stockboard__body">
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/gold?Lang=zh-TW')"
+                  type="click"
+                  >新臺幣黃金牌價</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://rate.bot.com.tw/gold/obu?Lang=zh-TW')
+                  "
+                  type="click"
+                  >外幣計價黃金存摺牌價</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://rate.bot.com.tw/gold/history?Lang=zh-TW')
+                  "
+                  type="click"
+                  >歷史黃金牌價</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://rate.bot.com.tw/gold/passbook?Lang=zh-TW')
+                  "
+                  type="click"
+                  >歷史黃金存摺牌價</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="stockboard__group">
+            <div class="stockboard__head">OBU匯利率</div>
+            <ul class="stockboard__body">
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/ir/obu?Lang=zh-TW')"
+                  type="click"
+                  >OBU外匯存款牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/xrt/obu?Lang=zh-TW')"
+                  type="click"
+                  >OBU牌告匯率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/use/obu?Lang=zh-TW')"
+                  type="click"
+                  >OBU外幣遠期信用狀牌告利率</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="
+                    goLink('https://rate.bot.com.tw/xrt/obuhx?Lang=zh-TW')
+                  "
+                  type="click"
+                  >OBU歷史牌告匯率查詢</a
+                >
+              </li>
+              <li class="stockboard__item">
+                <a
+                  class="stockboard__link"
+                  href="#"
+                  onclick="goLink('https://rate.bot.com.tw/ir/obu?Lang=zh-TW')"
+                  type="click"
+                  >OBU歷史外匯存款牌告利率查詢</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input
+      type="hidden"
+      id="form1:csrf_token"
+      name="csrf_token"
+      value="dfbd7d33-e88b-4117-b785-fbac3b8205a3"
+    /><input
+      type="hidden"
+      name="javax.faces.ViewState"
+      id="javax.faces.ViewState"
+      value="j_id1:j_id2"
+    />
+  </form>
+  <script language="javascript">
+    $(document).ready(function () {
+      var login2Step = gid("form1:login2Step").value;
+
+      if (login2Step == "1") {
+        gid("form1:UUID").disabled = true;
+        gid("form1:UUID").readonly = true;
+        gid("form1:UserID").disabled = true;
+        gid("form1:UserID").readonly = true;
+      } else {
+        gid("form1:UUID").disabled = false;
+        gid("form1:UUID").readonly = false;
+        gid("form1:UserID").disabled = false;
+        gid("form1:UserID").readonly = false;
+      }
+
+      $("input[type='password']").hidePassword(true);
+      captcha("captcha");
+
+      // 同一視窗（頁簽）有相同或不同的兩個帳號登入使用
+      if (false) {
+        if (confirm("")) {
+          window.location = "/BOT_CIB_B2C_WEB/common/logout/Logout.faces";
+        } else {
+          window.close();
+        }
+      } else {
+        // 重複登入
+        var bForceLogin =
+          document.getElementById("form1:forceLogin").value == "true";
+        if (bForceLogin) {
+          loginme();
+        }
+
+        // 其他 登入結果
+        showValidation(document.getElementById("commonMessage"), true, "");
+
+        var msg = document.getElementById("commonMessage_msg");
+        if (msg != null) {
+          toggleLogin();
+        }
+      }
+
+      // 為了避免JSF view 失效，需持續touch Server Session
+      keepAliveDoNothing();
+      setCaptchaTimeout();
+    });
+
+    function keepAliveDoNothing() {
+      var iSeconds = 300 * 1000;
+      dojo.xhrGet({
+        url: getContextPath() + "/AjaxSync?Fun=keepAlive&extLoginPage=false",
+        load: function (data) {
+          window.setTimeout("keepAliveDoNothing(" + iSeconds + ")", iSeconds);
+        },
+        error: function (data) {
+          window.alert(
+            getBundleString(
+              "Login_1_187_1354083850547"
+            ) /*系統連線失敗，請稍後再試。*/
+          );
+        },
+        sync: true,
+        preventCache: true,
+      });
+    }
+
+    function setCaptchaTimeout() {
+      // 設定逾時刷新圖形驗證碼
+      setTimeout(
+        function () {
+          refreshCaptcha();
+        },
+        30 * 60 * 1000
+      );
+    }
+
+    function refreshCaptcha() {
+      gid("form1:UUID").value = "";
+      gid("form1:UserID").value = "";
+      gid("form1:Password").value = "";
+      gid("form1:captchaAnswer").value = "";
+
+      captcha("captcha");
+      setCaptchaTimeout();
+    }
+  </script>
+</body>

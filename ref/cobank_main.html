@@ -1,0 +1,193 @@
+<body style="height: 100%">
+  <script>
+    window.onload = function () {
+      const myIframe = document.getElementById("tcbIframe");
+      const dateTime = new Date().getTime();
+      const url_string = "/TCB.TWNB.CORP.WEB/dist/index.html?v=" + dateTime;
+      const parameter = window.location.search;
+      if (parameter != "") {
+        window.parent.frames[0].location.href = url_string + parameter;
+      } else {
+        myIframe.src = url_string + parameter;
+      }
+    };
+  </script>
+
+  <div id="wrapper" style="height: 100%">
+    <iframe
+      id="tcbIframe"
+      name="iframe"
+      scrolling="yes"
+      frameborder="0"
+      width="100%"
+      marginwidth="0"
+      marginheight="0"
+      allowtransparency="true"
+      src="/TCB.TWNB.CORP.WEB/dist/index.html?v=1764756862984"
+      style="overflow-y: scroll; height: 100%"
+    >
+      <!doctype html>
+      <html lang="zh-tw">
+        <head>
+          <meta charset="utf-8" />
+          <title>合作金庫-企業網路銀行</title>
+          <base href="" />
+          <meta
+            http-equiv="Cache-Control"
+            content="no-cache, no-store, max-age=0, must-revalidate"
+          />
+          <meta http-equiv="pragma" content="no-cache" />
+          <meta http-equiv="expires" content="0" />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="msapplication-tap-highlight" content="no" />
+          <meta
+            name="viewport"
+            content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height, width=device-width, viewport-fit=cover"
+          />
+          <!-- 瀏覽器設定 -->
+          <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+          <!--iPhone button bar 隱藏-->
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <!--iPhone phone number 隱藏-->
+          <meta name="format-detection" content="telephone=no" />
+          <link
+            href="assets/images/icons/favicon.ico"
+            rel="shortcut icon"
+            type="image/x-icon"
+          />
+        </head>
+        <!-- 禁止選取設定 -->
+        <!--<body id="body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;-webkit-user-select:none;">-->
+
+          <body id="body" oncontextmenu="return false;" marginwidth="0" marginheight="0" class="ng-tns-0-0">
+            <div id="security"></div>
+            <div id="bhoSecurity"></div>
+            <div id="pre-security"></div>
+            <app-root _nghost-gcc-c0="" ng-version="8.2.14"><router-outlet _ngcontent-gcc-c0=""></router-outlet><app-main-page _nghost-gcc-c2=""><div _ngcontent-gcc-c2="" class="main-page-container container-fluid"><app-header _ngcontent-gcc-c2="" _nghost-gcc-c3="" data-hidden="false"><nav _ngcontent-gcc-c3="" class="navbar navbar-light" style="left: 0px;"><div _ngcontent-gcc-c3="" class="row w-100 h-100"><div _ngcontent-gcc-c3="" class="col-1 pl-0 pr-0 d-md-none d-inline-flex justify-content-center"><!----><span _ngcontent-gcc-c3="" class="material-icons">menu</span></div><div _ngcontent-gcc-c3="" class="col-7 pl-md-3 col-md-6 d-inline-flex align-items-center"><div _ngcontent-gcc-c3="" class="img-logo"></div></div><!----><div _ngcontent-gcc-c3="" class="col-4 pl-0 pr-0 d-md-none d-flex justify-content-center align-items-end flex-column"><div _ngcontent-gcc-c3="" class="d-flex justify-content-center align-items-center flex-wrap"><span _ngcontent-gcc-c3="" class="font-14 font-weight-bold">登出倒數&nbsp;</span><span _ngcontent-gcc-c3="" class="font-16 font-weight-bold font-red">588&nbsp;秒</span></div></div><div _ngcontent-gcc-c3="" class="col-md-6 px-0 d-none d-md-block"><div _ngcontent-gcc-c3="" class="common-link-container"><div _ngcontent-gcc-c3="" class="link-block"><!----><div _ngcontent-gcc-c3="" style="padding-right:10px"><!----><!----><!----><a _ngcontent-gcc-c3="" class="common-link" href="javascript:void(0)">匯率看板</a><!----><!----><a _ngcontent-gcc-c3="" class="common-link" href="javascript:void(0)">利率看板</a><!----><!----><a _ngcontent-gcc-c3="" class="common-link" href="javascript:void(0)">服務總覽</a><select _ngcontent-gcc-c3="" class="ng-valid ng-dirty ng-touched"><!----><option _ngcontent-gcc-c3="" value="zh_TW">繁體中文</option><option _ngcontent-gcc-c3="" value="en_US">English</option></select></div><!----><div _ngcontent-gcc-c3="" class="btn-logout">登出</div></div><!----><div _ngcontent-gcc-c3="" class="login-info"><div _ngcontent-gcc-c3="" class="icon account"></div><div _ngcontent-gcc-c3="" class="font_green d-inline-block mx-1 align-middle"> 親愛的客戶 </div><div _ngcontent-gcc-c3="" class="login-time"> 本次登入時間：2025/12/03 18:16:01 </div></div><!----><div _ngcontent-gcc-c3="" class="countdown"> 系統將於  <span _ngcontent-gcc-c3="" class="num">588</span>  秒登出 </div></div></div></div></nav></app-header><router-outlet _ngcontent-gcc-c2=""></router-outlet><app-home _nghost-gcc-c9=""><app-top-menu _ngcontent-gcc-c9="" _nghost-gcc-c10="" data-hidden="false"><!----><div _ngcontent-gcc-c10="" class="top-menu-container d-none d-md-flex"><div _ngcontent-gcc-c10="" class="top-tab"><!----><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-valid ng-dirty" name="top_menu" type="radio" id="top_menu_0"><label _ngcontent-gcc-c10="" for="top_menu_0">首頁</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-valid ng-dirty checked" name="top_menu" type="radio" id="top_menu_1"><label _ngcontent-gcc-c10="" for="top_menu_1">帳戶查詢</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_2"><label _ngcontent-gcc-c10="" for="top_menu_2">收付款服務</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_3"><label _ngcontent-gcc-c10="" for="top_menu_3">信用卡服務</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_4"><label _ngcontent-gcc-c10="" for="top_menu_4">融資服務</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_5"><label _ngcontent-gcc-c10="" for="top_menu_5">進出匯服務</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_6"><label _ngcontent-gcc-c10="" for="top_menu_6">投資理財</label><!----><input _ngcontent-gcc-c10="" class="invisible ng-untouched ng-pristine ng-valid" name="top_menu" type="radio" id="top_menu_7"><label _ngcontent-gcc-c10="" for="top_menu_7">管理設定</label></div></div><!----></app-top-menu><main _ngcontent-gcc-c9="" class="content-border row" role="main" data-hidden="false"><div _ngcontent-gcc-c9="" class="pr-1 d-none d-md-block"><app-left-menu _ngcontent-gcc-c9="" _nghost-gcc-c11=""><!----><!----><!----><!----><!----><div _ngcontent-gcc-c11="" class="side-menubar-multi"><accordion _ngcontent-gcc-c11="" class="panel-group" role="tablist" style="display: block" aria-multiselectable="true"><accordion-group _ngcontent-gcc-c11="" class="panel" style="display: block" _nghost-gcc-c13=""><div _ngcontent-gcc-c13="" class="panel card panel-default"><div _ngcontent-gcc-c13="" class="panel-heading card-header panel-enabled" role="tab"><div _ngcontent-gcc-c13="" class="panel-title"><div _ngcontent-gcc-c13="" class="accordion-toggle" role="button" aria-expanded="false"><!----><button _ngcontent-gcc-c13="" class="btn btn-link" type="button"> 存款查詢 </button></div></div></div><div _ngcontent-gcc-c13="" class="panel-collapse collapse" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;"><div _ngcontent-gcc-c13="" class="panel-body card-block card-body"><!----><div _ngcontent-gcc-c11="" class="sub-item"> 歸戶總覽 </div><div _ngcontent-gcc-c11="" class="sub-item"> 餘額查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 交易明細查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 台幣匯入匯款查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 託收票據查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 臺幣存款不足票據查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 中央登錄公債查詢 </div><div _ngcontent-gcc-c11="" class="sub-item"> 歷史交易查詢   </div></div></div></div></accordion-group></accordion></div><!----></app-left-menu></div><div _ngcontent-gcc-c9="" class="col-12 pl-0"><section _ngcontent-gcc-c9="" class="col-xl-9 col-lg-12 col-12"><app-content-header _ngcontent-gcc-c9="" _nghost-gcc-c12=""><!----></app-content-header><!----><!----><router-outlet _ngcontent-gcc-c9=""></router-outlet><app-index-page _nghost-gcc-c16=""><div _ngcontent-gcc-c16="" class="page_loginIndex"><div _ngcontent-gcc-c16="" class="page_index"><div _ngcontent-gcc-c16="" class="pic"></div><div _ngcontent-gcc-c16="" class="page_cont"><div _ngcontent-gcc-c16="" class="hd">帳戶查詢</div><div _ngcontent-gcc-c16="" class="txt1">本區提供您「 帳戶查詢 」 的各項服務</div><div _ngcontent-gcc-c16="" class="line"></div><table _ngcontent-gcc-c16="" border="0" cellpadding="0" cellspacing="0" class="table1" width="100%"><tr _ngcontent-gcc-c16=""><td _ngcontent-gcc-c16="" class="tit" width="9%">存款查詢</td><td _ngcontent-gcc-c16="" class="lt" width="3%"><div _ngcontent-gcc-c16="" class="arrow"></div></td><td _ngcontent-gcc-c16="">歸戶總覽（臺/外幣帳戶、國內/外基金帳戶）、餘額查詢、交易明細查詢、臺幣匯入匯款查詢、託收票據查詢、臺幣款不足票據查詢、中央登錄公債查詢” </td></tr></table><div _ngcontent-gcc-c16="" class="clear"></div></div></div><div _ngcontent-gcc-c16="" class="page_btm"></div></div></app-index-page><!----><!----></section></div></main></app-home><app-footer _ngcontent-gcc-c2="" _nghost-gcc-c4="" data-hidden="false"><footer _ngcontent-gcc-c4="" class="footer py-3 mt-auto"><div _ngcontent-gcc-c4="" class="container"><div _ngcontent-gcc-c4="">合作金庫銀行　版權所有 © 2014 TCB BANK. All Rights Reserved. 客服中心電話：0800-033-175(限市話)、04-2227-3131</div><div _ngcontent-gcc-c4="">瀏覽器建議：Microsoft Edge、Google Chrome、Safari、Firefox</div></div></footer></app-footer></div></app-main-page><app-loading-spinner _ngcontent-gcc-c0=""><div class="ht-c-hidden ht-c-spinner ht-c-center"></div><div class="outlet ht-c-hidden"><div class="loading"><!----></div></div></app-loading-spinner></app-root>
+            <script>
+              var htmlEle = window.parent.document.getElementsByTagName('html');
+              var bodyEle = window.parent.document.getElementsByTagName('body');
+              var wrapperEle = window.parent.document.getElementById('wrapper');
+              var elementList = window.parent.document.getElementsByTagName('iframe');
+          
+              if (htmlEle) {
+                htmlEle.item(0).style.height = '100%';
+              }
+          
+              if (bodyEle) {
+                bodyEle.item(0).style.height = '100%';
+              }
+          
+              if (wrapperEle) {
+                wrapperEle.style.height = '100%';
+              }
+          
+              if (elementList) {
+                var frameObj = elementList.item(0);
+                if (frameObj) {
+                  frameObj.setAttribute("scrolling", "yes")
+                  frameObj.style.overflowY = 'scroll';
+                  frameObj.style.height = '100%';
+                }
+          
+                // IE dynamic height change
+                if (detectIE() && frameObj) {
+                  var bodyElement = document.getElementsByTagName('body')[0];
+                  bodyElement.addEventListener('DOMSubtreeModified', function () {
+                    frameObj.style.height = bodyElement.offsetHeight + 'px'
+                  });
+                }
+              }
+          
+              function detectIE() {
+                var ua = window.navigator.userAgent;
+          
+                var msie = ua.indexOf('MSIE ');
+                if (msie > 0) {
+                  // IE 10 or older
+                  return true;
+                }
+          
+                var trident = ua.indexOf('Trident/');
+                if (trident > 0) {
+                  // IE 11
+                  return true;
+                }
+          
+                // other browser
+                return false;
+              }
+          
+              // 重新整理/離開頁面/重新整理快捷鍵 時觸發
+              window.onbeforeunload = function (event) {
+                return;
+              }
+          
+              // 鎖右鍵
+              document.oncontextmenu = function () {
+                return false;
+              }
+          
+              // 限制KEYBOARD
+              document.onkeydown = function (event) {
+                var e = window.event || event;
+                if (e) {
+                  var doBlock = false;
+                  var code = e.which || e.keyCode;
+                  if (code == 17) // ctrl key only: 不限制
+                  {
+                    return true;
+                  }
+                  if (code == 8)	// backspace
+                  {
+                    var source = e.target || e.srcElement;
+                    if (source.type && (source.type == 'text' || source.type == 'password' || source.type == 'textarea')) {
+                      return true; //在輸入框中的backspace不限制
+                    }
+                    else {
+                      doBlock = true;
+                    }
+                  }
+                  else if (code == 116)	//F5: 限制
+                  {
+                    doBlock = true;
+                  }
+                  else if (code == 122)	//F11: 限制
+                  {
+                    doBlock = true;
+                  }
+                  else if (e.ctrlKey)	 //Ctrl+?
+                  {
+                    if (code == 65 || code == 67 || code == 86 || code == 88 || code == 90) {	//65: Ctrl+A, 67: Ctrl+C, 86: Ctrl+V, 88: Ctrl+X, 90: Ctrl+Z
+                      return true;
+                    }
+                    else {
+                      doBlock = true;
+                    }
+                  }
+          
+                  if (doBlock) {
+                    if (e.preventDefault) { e.preventDefault(); }
+                    if (e.stopPropagation) { e.stopPropagation(); }
+                    if (e.returnValue) { e.returnValue = false; }
+                    if (window.event) { e.keyCode = 0; }
+                    return false;
+                  }
+                }
+                return true;
+              };
+          
+              // 禁止 上下頁 / 上下頁快捷鍵
+              history.pushState(null, null, location.href);
+              window.onpopstate = function () {
+                history.go(1);
+              };
+            </script>
+          <script src="runtime.3165a88c4ae8c0174793.js" defer=""></script><script src="polyfills-es5.aabab137d56725af949f.js" nomodule="" defer=""></script><script src="polyfills.f013db2a56dd01a51aa9.js" defer=""></script><script src="styles.6f8fd7824c6b45cb4d32.js" defer=""></script><script src="scripts.e377cb8518ab26042ced.js" defer=""></script><script src="main.c527c0639484ce618d33.js" defer=""></script>
+          
+          
+          </body>Ｆ
+      </html>
+    </iframe>
+  </div>
+</body>

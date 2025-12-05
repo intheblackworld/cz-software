@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CZ 銀行自動化助手</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CZ 銀行自動化助手</h1>
+            <div class="version-badge" id="app-version">v1.0.0</div>
+        </header>
+
+        <!-- 設定區域 -->
+        <section class="card settings-panel">
+            <h2>1. 設定與查詢</h2>
+            <div class="form-group">
+                <label for="bank-id">銀行編號 (Bank ID)</label>
+                <div class="input-group">
+                    <input type="text" id="bank-id" placeholder="例如: 101" value="101">
+                    <button id="btn-fetch-info" class="btn primary">獲取登入資訊</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="query-days">查詢天數 (往前推算)</label>
+                <input type="number" id="query-days" value="0" min="0" max="90">
+                <small class="hint">0 代表僅查詢當日</small>
+            </div>
+        </section>
+
+        <!-- 手動輸入區域 (API 失敗時顯示) -->
+        <section id="manual-input-panel" class="card manual-panel hidden">
+            <h2>手動輸入登入資訊</h2>
+            <div class="alert warning">
+                <strong>⚠️ API 查詢失敗</strong>
+                <p>請手動輸入登入資訊以繼續</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="manual-bank-code">銀行代號 (Bank Code)</label>
+                <select id="manual-bank-code">
+                    <option value="bot">bot - 臺灣銀行</option>
+                    <option value="cobank">cobank - 合作金庫</option>
+                    <option value="yuanta">yuanta - 元大銀行 (尚未移植)</option>
+                    <option value="hncb">hncb - 華南商銀 (尚未移植)</option>
+                    <option value="esun">esun - 玉山銀行 (尚未移植)</option>
+                    <option value="sunny">sunny - 陽信銀行 (尚未移植)</option>
+                    <option value="ktb">ktb - 京城銀行 (尚未移植)</option>
+                    <option value="firstbank">firstbank - 第一銀行 (尚未移植)</option>
+                    <option value="cathay">cathay - 國泰世華 (尚未移植)</option>
+                    <option value="ctbc">ctbc - 中國信託 (尚未移植)</option>
+                    <option value="bok">bok - 高雄銀行 (尚未移植)</option>
+                    <option value="chb">chb - 彰化銀行 (尚未移植)</option>
+                    <option value="megabank">megabank - 兆豐銀行 (尚未移植)</option>
+                    <option value="tbb">tbb - 臺灣企銀 (尚未移植)</option>
+                    <option value="tfcc">tfcc - 淡水一信 (尚未移植)</option>
+                    <option value="ubot">ubot - 聯邦銀行 (尚未移植)</option>
+                    <option value="taishin">taishin - 台新銀行 (尚未移植)</option>
+                    <option value="landbank">landbank - 土地銀行 (尚未移植)</option>
+                    <option value="fubon">fubon - 富邦銀行 (尚未移植)</option>
+                    <option value="skbank">skbank - 新光商銀 (尚未移植)</option>
+                    <option value="tcb">tcb - 台中銀行 (尚未移植)</option>
+                </select>
+                <small class="hint">選擇要使用的銀行配置（目前僅支援 bot）</small>
+            </div>
+
+            <div class="form-group">
+                <label for="manual-company-id">公司統編</label>
+                <input type="text" id="manual-company-id" placeholder="例如: 50660688">
+            </div>
+
+            <div class="form-group">
+                <label for="manual-user-id">使用者帳號</label>
+                <input type="text" id="manual-user-id" placeholder="例如: locker1688">
+            </div>
+
+            <div class="form-group">
+                <label for="manual-password">使用者密碼</label>
+                <input type="password" id="manual-password" placeholder="輸入密碼">
+            </div>
+
+            <div class="actions">
+                <button id="btn-manual-start" class="btn success large">使用手動輸入開始自動化</button>
+                <button id="btn-cancel-manual" class="btn text">取消</button>
+            </div>
+        </section>
+
+        <!-- 銀行資訊顯示區域 (預設隱藏) -->
+        <section id="bank-info-panel" class="card info-panel hidden">
+            <h2>2. 銀行資訊確認</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">銀行名稱:</span>
+                    <span class="value" id="info-bank-name">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">統編:</span>
+                    <span class="value" id="info-company-id">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">使用者代號:</span>
+                    <span class="value" id="info-user-id">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">設定檔:</span>
+                    <span class="value" id="info-config-key">-</span>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button id="btn-start" class="btn success large">開始執行自動化</button>
+            </div>
+        </section>
+
+        <!-- 控制按鈕區域 -->
+        <section class="card control-panel">
+            <button id="btn-stop" class="btn danger large hidden">停止自動化</button>
+        </section>
+
+        <!-- 狀態日誌區域 -->
+        <section class="card log-panel">
+            <div class="log-header">
+                <h2>執行狀態日誌</h2>
+                <button id="btn-clear-log" class="btn text">清除</button>
+            </div>
+            <div id="log-container" class="log-container">
+                <div class="log-entry system">系統已就緒，請輸入銀行編號開始。</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

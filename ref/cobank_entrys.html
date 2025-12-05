@@ -1,0 +1,666 @@
+<body class="home_size" cz-shortcut-listen="true" monica-id="ofpnmcalabcbjgholdjcjblkibolbppb" monica-version="7.9.9">
+  <div class="content_main">
+      <div class="Menu_box_home">
+          <h1><a href="https://www.tcb-bank.com.tw/personal-banking" title="" target="_blank"><img src="Images/Logo.svg" alt=""></a></h1>
+      </div>
+      <div class="Block_box">
+       <div class="stretch_box">
+           <div class="service_Box">
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/" target="_blank">
+                   <div class="icon_Title">個人銀行</div>
+                   <div class="icon_Text">Personal online banking</div>
+               </a>
+               <a href="#" onclick="javascript:window.open('https://cobank.tcb-bank.com.tw/TCB.TWNB.CORP.WEB/','tcbcorpframe','resizable=yes,height=768,width=1024,scrollbars=yes,status=1,left=0,top=0,location=no');">
+                   <div class="icon_Title">企業銀行</div>
+                   <div class="icon_Text">Corporate online banking</div>
+               </a>
+               <a href="#" onclick="" id="opener">
+                   <div class="icon_Title">網銀/數位帳戶開戶</div>
+                   <div class="icon_Text">Enroll</div>
+               </a>
+               <a href="#" onclick="" id="openerLoanLink">
+                   <div class="icon_Title">貸款專區</div>
+                   <div class="icon_Text">Loan</div>
+               </a>
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/General/cCardLogin" target="_blank">
+                   <div class="icon_Title">信用卡 / VISA金融卡專區</div>
+                   <div class="icon_Text">Credit / Debit Card</div>
+               </a>
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/General/lossAccountExApply" target="_blank">
+                   <div class="icon_Title">線上掛失</div>
+                   <div class="icon_Text">Register a Lost</div>
+               </a>
+                <a href="https://cobank.tcb-bank.com.tw/TCB.BFNB.IDV.WEB" target="_blank">
+                   <div class="icon_Title">友善個人網路銀行</div>
+                   <div class="icon_Text">Accessible Personal Online Banking</div>
+               </a>
+               <a href="#" id="icooperOpener">
+                   <div class="icon_Title">信託服務網 / 理財金庫 / 智能理財</div>
+                   <div class="icon_Text">Wealth Management ICooper</div>
+               </a>
+               <a href="#" id="paytax">
+                   <div class="icon_Title">繳稅專區 Tax</div>
+                   <div class="icon_Text_Tax">(連結至財金公司網站)</div>
+               </a>
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/General/onlineInsurance" target="_blank">
+                   <div class="icon_Title">網路預約投保</div>
+                   <div class="icon_Text">Book Insurance Online</div>
+               </a>
+               <a href="https://eatm.tcb-bank.com.tw/" target="_blank">
+                   <div class="icon_Title">eATM</div>
+               </a>
+               <a href="#" onclick="" id="openerSecLink">
+                   <div class="icon_Title">證券開戶下單/合庫人壽</div>
+                   <div class="icon_Text">Securities / TCB Life</div>
+               </a>
+           </div>
+
+           <!-- 個人網銀新舊連結 -->
+           <div id="idvLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+              <div class="title">
+                <p class="l">
+                  <span>個人網銀</span>
+                </p>
+              </div>
+              <div class="sc_fix">
+                <div class="window_titleBox">
+                  <p class="gray_flag">個人網銀</p>
+                  <div class="line"></div>
+                </div>
+                  <a class="Extra_button" target="_blank" href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/">
+                  新個人網銀
+                  </a>
+                  <a class="Extra_button" href="#" onclick="javascript:window.open('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.WEB/','tcbConsoleIDV','resizable=yes,height=768,width=1440,scrollbars=yes,status=1,left=0,top=0,location=no');">
+                  原個人網銀
+                  </a>
+              </div>
+              <div class="btn_box one_btn ">
+                <button class="btn2 main" onclick="toggleDialog('idvLink', true)">關閉</button>
+              </div>
+            </div>
+           </div>
+
+           <!-- 信用卡專區連結 -->
+           <div id="creditLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+               <p class="l">
+                  <span>信用卡/VISA金融卡專區</span>
+               </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+                <p class="gray_flag">信用卡/VISA金融卡專區</p>
+                <div class="line"></div>
+              </div>
+              <a class="Extra_button" href="#" onclick="javascript:window.open('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.WEB/ccConsole.jsp','tcbConsoleIDV','resizable=yes,height=768,width=1440,scrollbars=yes,status=1,left=0,top=0,location=no');">
+              原信用卡/VISA金融卡專區
+              </a>
+              <a class="Extra_button" target="_blank" href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/ccConsole.jsp">
+              新信用卡/VISA金融卡專區
+              </a>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('creditLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <!-- 數位存款帳戶 -->
+           <div id="accountLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+                <p class="l">
+                  <span>網銀/數位帳戶開戶</span>
+                </p>
+             </div>
+             <div class="sc_fix">
+               <div class="window_titleBox">
+                  <p class="gray_flag">申請網路銀行</p>
+                  <div class="line"></div>
+               </div>
+
+               <button class="Extra_button">
+                <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/General/OnlineApplyNetBanking" target="_blank">
+                申請個人網路銀行查詢服務<br>(請準備金融卡+讀卡機)
+                </a>
+               </button>
+
+               <div class="window_titleBox">
+                  <p class="gray_flag">數位存款開戶</p>
+                  <div class="line"></div>
+               </div>
+
+               <button class="Extra_button">
+                <a href="https://actlink.tcb-bank.com.tw/digitalDeposit/index.html" target="_blank">
+                開立數位存款帳戶
+                </a>
+               </button>
+
+               <button class="Extra_button">
+                <a href="https://actlink.tcb-bank.com.tw/digitalDeposit/index.html#/search-progress" target="_blank">
+                申辦進度查詢及補件
+                </a>
+               </button>
+
+               <button class="Extra_button">
+                <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/General/digitalDebitCardAgree" target="_blank">
+                金融卡啟用
+                </a>
+               </button>
+             </div>
+
+             <div class="btn_box one_btn ">
+                <button class="btn2 main" onclick="toggleDialog('accountLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <!-- 貸款專區 -->
+           <div id="loanLink" class="window_Box " style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+                <p class="l">
+                 <span>貸款專區</span>
+                </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+                <p class="gray_flag">個人金融</p>
+                <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://www.tcb-bank.com.tw/aboutfinance/personal_finance/consumer_intro/Pages/%e6%88%bf%e5%b1%8b%e8%b2%b8%e6%ac%be.aspx" target="newWindow">
+               個人金融
+               </a>
+              </button>
+              <div class="window_titleBox">
+               <p class="gray_flag">企業金融</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://www.tcb-bank.com.tw/aboutfinance/busi_finance/policy_project_loans/Pages/short_loan_intro.aspx" target="newWindow">
+               企業金融
+               </a>
+              </button>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('loanLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <div id="securityLink" class="window_Box " style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+               <p class="l">
+                 <span>證券開戶下單/合庫人壽</span>
+               </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+                <p class="gray_flag">證券線上開戶</p>
+                <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://mopen.tcfhc-sec.com.tw/eopenweb/#/home" target="_blank">
+               證券線上開戶
+               </a>
+              </button>
+              <div class="window_titleBox">
+               <p class="gray_flag">證券下單</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://estk.tcfhc-sec.com.tw/TCBWeb/WebLogin.aspx" target="_blank">
+               證券下單
+               </a>
+              </button>
+              <div class="window_titleBox">
+               <p class="gray_flag">合庫人壽</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://www.tcb-life-online.com.tw/EBiz?atv=tcbp000&amp;utm_source=TCoB&amp;utm_medium=ONBK12-12&amp;utm_content=23230804" target="_blank">
+               合庫人壽
+               </a>
+              </button>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('securityLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <!-- 身心障礙者ATM跨提手續費減免申請新舊連結 -->
+           <div id="disabilitiesLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+              <p class="l">
+               <span>個人網銀</span>
+              </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+               <p class="gray_flag">個人網銀</p>
+               <div class="line"></div>
+              </div>
+              <a class="Extra_button" target="_blank" href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.WEB/general/disabledAtmRelief/disabledAtmReliefFreeApplyWarning.faces?__menu=TWONLA27">
+               原身心障礙者ATM跨提手續費減免申請
+              </a>
+              <a class="Extra_button" target="_blank" href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/general/disabledAtmRelief/disabledAtmReliefFreeApplyWarning.faces?__menu=TWONLA27">
+               新身心障礙者ATM跨提手續費減免申請
+              </a>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('disabilitiesLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <div id="insureLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+              <p class="l">
+               <span>網路預約投保</span>
+              </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+               <p class="gray_flag">網路預約投保</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="#" onclick="javascript:window.open('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.WEB/general/onlineInsurance.faces?__menu=TWNCUT12','tcbConsoleIDV','resizable=yes,height=768,width=1440,scrollbars=yes,status=1,left=0,top=0,location=no');">
+                原網路預約投保
+               </a>
+              </button>
+              <button class="Extra_button">
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/general/onlineInsurance.faces?__menu=TWNCUT12" target="_blank">
+                新網路預約投保
+               </a>
+              </button>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('insureLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <div id="lostLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+              <p class="l">
+               <span>線上掛失</span>
+              </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+               <p class="gray_flag">線上掛失</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="#" onclick="javascript:window.open('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.WEB/general/lossAccountExApply/lossAccountExApply.faces?__menu=TWNCUT09','tcbConsoleIDV','resizable=yes,height=768,width=1440,scrollbars=yes,status=1,left=0,top=0,location=no');">
+                原線上掛失
+               </a>
+              </button>
+              <button class="Extra_button">
+               <a href="https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/general/lossAccountExApply/lossAccountExApply.faces?__menu=TWNCUT09" target="_blank">
+                新線上掛失
+               </a>
+              </button>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('lostLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           <div id="icooperLink" class="window_Box" style="display:none">
+            <div class="window" style="display:none">
+             <div class="title">
+              <p class="l">
+               <span>信託服務網/理財金庫/智能理財</span>
+              </p>
+             </div>
+             <div class="sc_fix">
+              <div class="window_titleBox">
+               <p class="gray_flag">信託服務網/理財金庫/智能理財</p>
+               <div class="line"></div>
+              </div>
+              <button class="Extra_button">
+               <a href="https://trusts.tcb-bank.com.tw/eTrust/" target="_blank">
+                信託服務網
+               </a>
+              </button>
+              <button class="Extra_button">
+               <a href="https://tcbbankfund.moneydj.com/index.html" target="_blank">
+                理財金庫
+               </a>
+              </button>
+              <button class="Extra_button">
+               <a href="https://irobo.tcb-bank.com.tw/irobo" target="_blank">
+                智能理財
+               </a>
+              </button>
+             </div>
+             <div class="btn_box one_btn ">
+              <button class="btn2 main" onclick="toggleDialog('icooperLink', true)">關閉</button>
+             </div>
+            </div>
+           </div>
+
+           
+
+       <div class="banner_slider slick-initialized slick-slider"><div class="slick-list draggable" style="padding: 0px 50px;"><div class="slick-track" style="opacity: 1; width: 30000px; transform: translate3d(275px, 0px, 0px);"><div class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://www.tcb-bank.com.tw/about-tcb/announcement/items/news/event/cashforeveryone" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=9a257aa072e18593&amp;place=jump" tabindex="-1"></a></div></div></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://mhu.tcb-life.com.tw/landingpage/15year/landingpage.aspx?p=eoVIxvGLTDROgjLjpBGUpwGGulod1pzinHG3kyp2Aqs%3d&amp;k=IJAjuGX2uNPCP0gp7m8g0%2b2ss81cGXgxWlp0HeO61%2fUPQc55a3NKZ4OOoSOBzHDKaLqbbWm4Ob8eXMJ16afldw%3d%3d&amp;utm_source=newbkBNP&amp;utm_medium=BN&amp;utm_campaign=15year" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=400d06440195ad0a&amp;place=jump" tabindex="-1"></a></div></div></div><div class="slick-slide slick-current slick-center" data-slick-index="2" aria-hidden="true"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://mhu.tcb-life.com.tw/landingpage/ebizairsim02/landingpage.aspx?p=eoVIxvGLTDROgjLjpBGUpwGGulod1pzinHG3kyp2Aqs%3d&amp;k=GHUGmotSX8SmU0tOpMBF7tQpadrTiOjEuwYg7K%2f3TB1Ptb4tKju02LimfMqnAJG6y%2bpd%2f1WjeKTL2HC0H5KKHA%3d%3d&amp;refbranch=TCB&amp;refid=AIRSIM&amp;campcode=TCB&amp;refcode=AIRSIM&amp;utm_source=newbk&amp;utm_medium=BN&amp;utm_campaign=airsim" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=0040ea5807c50490&amp;place=jump" tabindex="-1"></a></div></div></div><div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://www.tcb-bank.com.tw/personal-banking/wealth/discount/financial-management-discount/trend" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=e6498a8bf766dea5&amp;place=jump" tabindex="-1"></a></div></div></div><div class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://tcb-event.com.tw/2025cobank/index.php" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=e791008115522ba3&amp;place=jump" tabindex="-1"></a></div></div></div><div class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1"><div><div class="item" style="width: 100%; display: inline-block;"><a target="_blank" href="https://mhu.tcb-life.com.tw/landingpage/areaAMLCFT/landingpage.aspx?p=eoVIxvGLTDROgjLjpBGUpwGGulod1pzinHG3kyp2Aqs%3d&amp;k=Mjhf1I8Gx4i6N4odiR%2bQVKHlPQyhmxPKVeLFi1qYw6zIzQrO3d8l7ICeK%2fRoAxpqeInMAP7ccXoQwXect4K70w%3d%3d&amp;_gl=1*63gvt1*_gcl_au*MTQzOTMyNzA4Mi4xNzM0NTcyNzA3*_ga*MjEwODA3MDgxNC4xNzEwODk2OTcy*_ga_TV147405ZY*MTc0MjI5MDYzNC4yNDkuMC4xNzQyMjkwNjM0LjYwLjAuMA" style="background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=022b6e2dc7d5b849&amp;place=jump" tabindex="-1"></a></div></div></div></div></div></div></div>
+      </div>
+
+      <footer>
+      <div class="infomation">
+       <ul class="top">
+        <li class="two">
+         <a href="https://www.tcb-bank.com.tw/about-tcb/info/group/data-protection" target="_blank">客戶資料保密措施</a><a href="https://www.tcb-bank.com.tw/about-tcb/disclosure/other/website/privacy-statement" target="_blank">隱私權政策</a>
+        </li>
+        <li>
+         <p class="title">客服專線</p>
+          <div>
+           <p>營業時間內請洽各分行電金人員 / 非營業時間請洽客服中心：</p>
+           <div><a class="tel_link" href="tel:+886-800-033-175">0800-033-175(限市話)</a>、<a class="tel_link" href="tel:+04-2227-3131">04-2227-3131</a></div>
+          </div>
+        </li>
+       </ul>
+       <ul class="bottom">
+        <li>
+         <p class="title">瀏覽器建議</p>
+         <p>Microsoft Edge 、Google Chrome 、Safari 、Firefox</p>
+        </li>
+       </ul>
+      </div>
+      <div class="links">
+       <a id="cdiclink" href="#"><img src="Images/icon/login/center.svg" alt=""></a>
+       <a href="https://www.tcb-bank.com.tw/personal-banking/digital-finance/services/cobank?tab=2" target="_blank"><img src="Images/icon/login/tw_epa.jpg" style="border-radius: 8px;" alt=""></a>
+       <div class="link">
+        <div>
+         <a id="linelink" href="#"><img src="Images/icon/login/line.svg" alt=""></a>
+         <a id="youtubelink" href="#"><img src="Images/icon/login/yt.svg" alt=""></a>
+         <a id="iglink" href="#"><img src="Images/icon/login/ins.svg" alt=""></a>
+         <a id="fblink" href="#"><img src="Images/icon/login/fb.svg" alt=""></a>
+        </div>
+        <p>©合作金庫銀行 版權所有</p>
+       </div>
+      </div>
+      </footer>
+  </div>
+
+  <button id="to_top"><img id="to_top_arrow" src="Images/icon/to_top.svg" alt=""></button>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+  <script src="Scripts/jquery-3.5.1.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="Scripts/slick.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+
+var isAPP = "";
+if (navigator.userAgent.indexOf("Line") > -1 || navigator.userAgent.indexOf("FBAV") > -1 || navigator.userAgent.indexOf("FBAN")>-1 || navigator.userAgent.indexOf("MicroMessenger")>-1 || navigator.userAgent.indexOf("Instagram")>-1)
+{
+   isApp = "true";
+   location.href = "https://cobank.tcb-bank.com.tw/home/Notice.html";
+}
+else
+{
+    isApp = "false";
+}
+
+// 彈窗功能
+function toggleDialog(id, isClose){
+
+ //console.log('toggleIn');
+ //console.log('id : ' + id);
+ $("#" + id).toggle();
+ $("#" + id).children().eq(0).slideToggle();
+
+ // 避免多次點擊
+ if(isClose) {
+    $("#" + id).find('button.btn2').prop("disabled", true);
+ } else {
+    $("#" + id).find('button.btn2').prop("disabled", false);
+ }
+}
+
+// 廣告清單暫存
+var tmpAdData = "";
+
+// 發一個 ajax 去拿廣告清單
+function adRefresh(url) {
+  return $.ajax({
+    url: url,
+    type: 'post',
+    dataType: 'json'
+//     beforeSend: showLoadingImgFn
+  })
+  .done(function(data){
+
+    // 比對回傳值是否與暫存的 json 相等。
+    // 若相等不執行後續動作.
+    if(tmpAdData === JSON.stringify(data)){
+
+     console.log('same');
+
+    }
+    else{
+     console.log('not same')
+
+     var tempBannerBox = $('.banner_slider');
+     tempBannerBox.parent().append('<div class="banner_slider">');
+     tempBannerBox.remove();
+
+     //  跑 data iterator ( 因暫存值與 server 回傳值不同，需更新廣告列表 )
+     for(var i = 0; i < data.result.length; i++) {
+
+     var obj = data.result[i];
+     if (obj.jumpLinkUrl != "") {
+     let $cssDiv = $('<div class="item">');
+     let $cssAtag = $('<a target="_blank" href="' + obj.jumpLinkUrl + '">')
+
+     $cssAtag.attr('style', 'background-image:url(https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise/readImage?key=' + obj.desEncryptImageKey + '&place=jump');
+     var $customAd = $cssDiv.append($cssAtag);
+
+     //var $customAd = $cssDiv.append($('<a href="' + obj.advertise.jumpLinkUrl +'">')
+     //.append($('<img>',{id:'',src:'https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/readImage?key=' + //obj.encryptedId + '&place=login'})));
+        $('.banner_slider').append($customAd);
+     }
+   }
+
+   // slick.js 套件 : 將 banner_slider 裡面的元素轉成可輪播的廣告
+   /*$('.banner_slider').slick({
+    slidesToShow: 1,
+    dots: true,
+    autoplay: true,
+    arrow: false,
+    responsive: [
+     {
+      breakpoint: 768,
+      settings: {
+       centerMode: true,
+       centerPadding: '60px',
+      }
+     },
+     {
+      breakpoint: 480,
+      settings: {
+       centerMode: true,
+       centerPadding: '30px',
+       slidesToShow: 1
+      }
+     }
+    ]
+   });*/
+
+   $('.banner_slider').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 1,
+    centerMode: true,
+    variableWidth: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    focusOnSelect: true,
+    responsive: [
+     {
+      breakpoint: 768,
+      settings: {
+       centerPadding: '40px',
+       slidesToShow: 3
+      }
+     }
+    ]
+
+   });
+
+   // 更新廣告暫存清單為本次回傳內容
+     tmpAdData = JSON.stringify(data);
+   }
+  })
+  .always(function() {
+    // if todo...
+  })
+  .fail(function() {
+    // if todo...
+  });
+
+};
+
+
+$(function() {
+
+ // 替彈窗功能加上 onClick 事件
+ $( "#opener" ).on( "click", function() {
+   toggleDialog('accountLink');
+  });
+
+ $( "#openerLoanLink" ).on( "click", function() {
+   toggleDialog('loanLink');
+  });
+
+ $( "#openerSecLink" ).on( "click", function() {
+   toggleDialog('securityLink');
+  });
+
+ $( "#idvOpener" ).on( "click", function() {
+   toggleDialog('idvLink');
+  });
+
+ $( "#creditOpener" ).on( "click", function() {
+   toggleDialog('creditLink');
+  });
+
+ $( "#disabilitiesOpener" ).on( "click", function() {
+   toggleDialog('disabilitiesLink');
+  });
+
+ $( "#lostOpener" ).on( "click", function() {
+   toggleDialog('lostLink');
+  });
+
+ $( "#insureOpener" ).on( "click", function() {
+   toggleDialog('insureLink');
+  });
+
+ $( "#icooperOpener" ).on( "click", function() {
+   toggleDialog('icooperLink');
+  });
+
+ //FB NOTICE - 2019.04.23
+ var fba = $('#fblink');
+ fba.href = "";
+ var notice = "親愛的客戶您好：\n\n";
+ notice+= "1.您即將離開本行網站，進入其他業者經營的網站。\n";
+ notice+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ fba.click(function(){
+  if(confirm(notice)){
+   window.open("https://www.facebook.com/TCBebank");
+  }
+ });
+
+ //CDIC NOTICE - 2020.10.16
+ var cdica = $('#cdiclink');
+ cdica.href = "";
+ var notice2 = "親愛的客戶您好：\n\n";
+ notice2+= "1.您即將離開本行網站，進入其他業者經營的網站。\n";
+ notice2+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice2+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ cdica.click(function(){
+  if(confirm(notice2)){
+   window.open("https://www.cdic.gov.tw/main_ch/chinese.html");
+  }
+ });
+
+ //Line NOTICE - 2020.10.16
+ var cdica = $('#linelink');
+ cdica.href = "";
+ var notice2 = "親愛的客戶您好：\n\n";
+ notice2+= "1.您即將離開本行網站，進入其他業者經營的網站。\n";
+ notice2+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice2+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ cdica.click(function(){
+  if(confirm(notice2)){
+   window.open("https://page.line.me/cobank?openQrModal=true");
+  }
+ });
+
+ //Youtube NOTICE - 2020.10.16
+ var cdica = $('#youtubelink');
+ cdica.href = "";
+ var notice2 = "親愛的客戶您好：\n\n";
+ notice2+= "1.您即將離開本行網站，進入其他業者經營的網站。\n";
+ notice2+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice2+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ cdica.click(function(){
+  if(confirm(notice2)){
+   window.open("https://www.youtube.com/channel/UC0XmCKUMgtnCOouUEh61ODQ");
+  }
+ });
+
+ //IG NOTICE - 2020.10.16
+ var cdica = $('#iglink');
+ cdica.href = "";
+ var notice2 = "親愛的客戶您好：\n\n";
+ notice2+= "1.您即將離開本行網站，進入其他業者經營的網站。\n";
+ notice2+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice2+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ cdica.click(function(){
+  if(confirm(notice2)){
+   window.open("https://instagram.com/tcb_ebank?utm_medium=copy_link");
+  }
+ });
+
+ //PAYTAX NOTICE - 2023.06.02
+ var cdica = $('#paytax');
+ cdica.href = "";
+ var notice6 = "親愛的客戶您好：\n\n";
+ notice6+= "1.您即將離開本行網站，進入財金公司經營的網站。\n";
+ notice6+= "2.其他業者經營的網站由業者自行負責(包含客戶隱私權保護及客戶資訊安全事項)，不屬於本行網站控制及負責範圍。\n";
+ notice6+= "3.您同意繼續請選擇「確定」，不同意請選擇「取消」，謝謝。";
+ cdica.click(function(){
+  if(confirm(notice6)){
+   window.open("https://paytax.nat.gov.tw/");
+  }
+ });
+
+ // 頁面進入 onload 時手動呼叫一次
+ adRefresh('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise');
+
+ // 詢問 server 是否需更新廣告 
+ var intervalID = setInterval(
+   function(){adRefresh('https://cobank.tcb-bank.com.tw/TCB.TWNB.IDV.NEW.WEB/rest/general/advertise')},
+   3600 * 1000); // 60 min
+  });
+</script>
+
+
+
+<readwise-tooltip-container></readwise-tooltip-container><div id="monica-content-root" class="monica-widget" style="pointer-events: auto;"></div></body>
