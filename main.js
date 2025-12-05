@@ -465,6 +465,14 @@ function initAutoUpdater() {
     // 更新發生錯誤
     autoUpdater.on('error', (error) => {
         console.error('[自動更新] 發生錯誤:', error);
+        
+        // 如果是開發環境的配置檔案錯誤，不要顯示給用戶
+        if (error.message && error.message.includes('app-update.yml')) {
+            console.log('[自動更新] 開發環境下無法檢查更新（這是正常的）');
+            sendUpdateStatusToWindow('update-not-available');
+            return;
+        }
+        
         sendUpdateStatusToWindow('update-error', {
             message: error.message
         });
@@ -473,7 +481,9 @@ function initAutoUpdater() {
     // 應用啟動後 3 秒檢查更新
     setTimeout(() => {
         console.log('[自動更新] 開始檢查更新...');
-        autoUpdater.checkForUpdates();
+        autoUpdater.checkForUpdates().catch(err => {
+            console.log('[自動更新] 檢查更新失敗（可能在開發環境中）:', err.message);
+        });
     }, 3000);
 }
 
