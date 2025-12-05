@@ -16,7 +16,9 @@ node_modules
 # Build output
 dist
 dist-ssr
-out/*                    # Electron Forge 打包輸出
+out/*            
+out
+/out        # Electron Forge 打包輸出
 *.local
 
 # Editor directories and files

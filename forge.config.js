@@ -10,10 +10,20 @@ module.exports = {
   },
   rebuildConfig: {},
   makers: [
-    // {
-    //   name: '@electron-forge/maker-squirrel',
-    //   config: {},
-    // },
+    // Squirrel.Windows - 產生 Windows 安裝檔（Setup.exe）
+    // 注意：在 macOS 上打包需要 Mono 和 Wine，建議使用 GitHub Actions
+    {
+      name: '@electron-forge/maker-squirrel',
+      config: {
+        name: 'cz_software',
+        setupExe: 'CZSoftwareSetup.exe'
+        // 如果有 icon，可以添加：
+        // setupIcon: './assets/icon.ico',
+        // iconUrl: 'https://...'
+      },
+      platforms: ['win32']
+    },
+    // ZIP - macOS 和 Windows 都可以使用（跨平台打包友好）
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin', 'win32'],

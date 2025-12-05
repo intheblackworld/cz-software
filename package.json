@@ -8,6 +8,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "make:win": "electron-forge make --platform=win32 --arch=x64",
+    "make:win:installer": "electron-forge make --platform=win32 --arch=x64 --targets=@electron-forge/maker-squirrel",
+    "make:win:zip": "electron-forge make --platform=win32 --arch=x64 --targets=@electron-forge/maker-zip",
     "publish": "electron-forge publish",
     "postinstall": "node -e \"try { require('puppeteer') } catch(e) { console.log('Puppeteer not ready yet') }\""
   },
