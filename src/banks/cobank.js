@@ -881,7 +881,9 @@ class COBANKAutomation {
           '中華郵政': '700', '郵局': '700',
           '將來銀行': '823', '將來': '823',
           '京城': '054', '京城銀行': '054',
-          '連線銀行': '805', '聯邦': '803', '聯邦銀行': '803',
+          '連線銀行': '824', '聯邦': '803', '聯邦銀行': '803',
+          '玉山銀行': '808', '永豐銀行': '807', '永豐': '807',
+          '遠東銀行': '805',
         };
         
         rows.forEach((row, index) => {
@@ -906,7 +908,18 @@ class COBANKAutomation {
           const bankHTML = bankCell.innerHTML;
           const bankMatch = bankHTML.match(/<br[^>]*>(.+)/);
           const bankName = bankMatch ? bankMatch[1].trim() : '';
-          const bankCode = bankNameToCodes[bankName] || '';
+          
+          // 檢查是否為合庫（同行轉帳）
+          const isCobank = bankName.includes('合庫') || bankHTML.includes('合庫');
+          let bankCode = '';
+          
+          if (isCobank) {
+            // 同行轉帳，使用合作金庫銀行代碼 006
+            bankCode = '006';
+          } else {
+            // 跨行轉帳，使用銀行名稱映射
+            bankCode = bankNameToCodes[bankName] || '';
+          }
           
           // 存款金額（第5欄，index=4）- 這是 pay
           const depositText = cells[4].textContent.trim().replace(/,/g, '');
@@ -918,11 +931,12 @@ class COBANKAutomation {
           // 備註/支票號碼（第7欄，index=6）
           const remarkCell = cells[6];
           const remarkHTML = remarkCell.innerHTML;
-          const accountMatch = remarkHTML.match(/(\d{16})/);
+          const accountMatch = remarkHTML.match(/(\d{16}|\d{13})/);
           const accountNumber = accountMatch ? accountMatch[1] : '';
           
           // 組合完整帳號：銀行代號(3碼) + 帳號(16碼)
-          const fullAccount = bankCode ? bankCode + accountNumber : accountNumber;
+          // 如果是合庫同行轉帳，確保補上 006
+          const fullAccount = isCobank ? '006' + '000' + accountNumber : (bankCode ? bankCode + accountNumber : accountNumber);
           
           if (deposit > 0) {
             transactions.push({
