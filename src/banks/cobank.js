@@ -1036,7 +1036,31 @@ class COBANKAutomation {
     const waitTime = config.automation.steps[8].waitTime || 5000;
     this.log(`等待 ${waitTime/1000} 秒後重新查詢...`, 'info');
     
-    await this.utils.sleep(waitTime);
+    // 分段等待，每 1 秒檢查一次暫停狀態
+    const checkInterval = 1000;
+    const totalChecks = Math.ceil(waitTime / checkInterval);
+    
+    for (let i = 0; i < totalChecks; i++) {
+      // 檢查是否被暫停
+      if (this.isPaused) {
+        this.log('自動化已暫停，等待恢復...', 'system');
+        // 等待恢復
+        while (this.isPaused) {
+          await this.utils.sleep(checkInterval);
+        }
+        this.log('自動化已恢復，繼續執行...', 'system');
+      }
+      await this.utils.sleep(checkInterval);
+    }
+    
+    // 再次檢查暫停狀態
+    if (this.isPaused) {
+      this.log('自動化已暫停，等待恢復...', 'system');
+      while (this.isPaused) {
+        await this.utils.sleep(checkInterval);
+      }
+      this.log('自動化已恢復，繼續執行...', 'system');
+    }
     
     const adjustedDaysBack = this.checkAndAdjustForNewDay(queryDaysBack);
     

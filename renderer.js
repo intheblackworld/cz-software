@@ -1,6 +1,8 @@
 // UI 邏輯處理
 const btnFetchInfo = document.getElementById('btn-fetch-info');
 const btnStart = document.getElementById('btn-start');
+const btnPause = document.getElementById('btn-pause');
+const btnResume = document.getElementById('btn-resume');
 const btnStop = document.getElementById('btn-stop');
 const btnClearLog = document.getElementById('btn-clear-log');
 const btnManualStart = document.getElementById('btn-manual-start');
@@ -82,6 +84,8 @@ btnStart.addEventListener('click', () => {
     
     // UI 狀態切換
     btnStart.classList.add('hidden');
+    btnPause.classList.remove('hidden');
+    btnResume.classList.add('hidden');
     btnStop.classList.remove('hidden');
     inputBankId.disabled = true;
     btnFetchInfo.disabled = true;
@@ -159,7 +163,9 @@ btnManualStart.addEventListener('click', () => {
     btnFetchInfo.disabled = true;
     inputQueryDays.disabled = true;
     
-    // 顯示停止按鈕（在控制面板中）
+    // 顯示控制按鈕（在控制面板中）
+    btnPause.classList.remove('hidden');
+    btnResume.classList.add('hidden');
     btnStop.classList.remove('hidden');
 });
 
@@ -173,7 +179,23 @@ btnCancelManual.addEventListener('click', () => {
     addLog('已取消手動輸入', 'system');
 });
 
-// 3. 停止自動化
+// 3. 暫停自動化
+btnPause.addEventListener('click', () => {
+    window.electronAPI.pauseAutomation();
+    btnPause.classList.add('hidden');
+    btnResume.classList.remove('hidden');
+    addLog('自動化已暫停', 'system');
+});
+
+// 4. 恢復自動化
+btnResume.addEventListener('click', () => {
+    window.electronAPI.resumeAutomation();
+    btnPause.classList.remove('hidden');
+    btnResume.classList.add('hidden');
+    addLog('自動化已恢復', 'system');
+});
+
+// 5. 停止自動化
 btnStop.addEventListener('click', () => {
     window.electronAPI.stopAutomation();
 });
@@ -187,6 +209,8 @@ window.electronAPI.onLogUpdate((logData) => {
 window.electronAPI.onAutomationStatusChange((status) => {
     if (status === 'stopped') {
         btnStart.classList.remove('hidden');
+        btnPause.classList.add('hidden');
+        btnResume.classList.add('hidden');
         btnStop.classList.add('hidden');
         inputBankId.disabled = false;
         btnFetchInfo.disabled = false;
@@ -203,7 +227,17 @@ window.electronAPI.onAutomationStatusChange((status) => {
         
         addLog('自動化已停止', 'system');
     } else if (status === 'running') {
+        btnPause.classList.remove('hidden');
+        btnResume.classList.add('hidden');
         addLog('自動化執行中...', 'success');
+    } else if (status === 'paused') {
+        btnPause.classList.add('hidden');
+        btnResume.classList.remove('hidden');
+        addLog('自動化已暫停', 'system');
+    } else if (status === 'resumed') {
+        btnPause.classList.remove('hidden');
+        btnResume.classList.add('hidden');
+        addLog('自動化已恢復', 'system');
     }
 });
 

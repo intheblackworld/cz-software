@@ -39,6 +39,7 @@ let page = null; // Puppeteer 頁面實例
 let currentAutomation = null; // 當前執行的自動化實例
 let automationState = {
   isRunning: false,
+  isPaused: false,
   currentStep: 0,
   bankCode: null,
   config: null,
@@ -209,6 +210,9 @@ ipcMain.on('start-automation', async (event, config) => {
             throw new Error(`無法建立 ${bankCode} 的自動化實例`);
         }
         
+        // 設置暫停狀態（初始為 false）
+        currentAutomation.isPaused = false;
+        
         event.reply('log-update', { 
             message: `已載入 ${bankConfig.name} (${bankCode}) 自動化模組`, 
             type: 'success' 
@@ -254,12 +258,53 @@ ipcMain.on('start-automation', async (event, config) => {
 });
 
 // ================================================
+// IPC 處理器：暫停自動化
+// ================================================
+ipcMain.on('pause-automation', async (event) => {
+    console.log('[自動化] 收到暫停請求');
+    
+    automationState.isPaused = true;
+    
+    // 如果自動化實例存在，設置暫停標記
+    if (currentAutomation) {
+        currentAutomation.isPaused = true;
+    }
+    
+    event.reply('log-update', { 
+        message: '自動化已暫停', 
+        type: 'system' 
+    });
+    event.reply('automation-status-change', 'paused');
+});
+
+// ================================================
+// IPC 處理器：恢復自動化
+// ================================================
+ipcMain.on('resume-automation', async (event) => {
+    console.log('[自動化] 收到恢復請求');
+    
+    automationState.isPaused = false;
+    
+    // 如果自動化實例存在，清除暫停標記
+    if (currentAutomation) {
+        currentAutomation.isPaused = false;
+    }
+    
+    event.reply('log-update', { 
+        message: '自動化已恢復', 
+        type: 'system' 
+    });
+    event.reply('automation-status-change', 'resumed');
+});
+
+// ================================================
 // IPC 處理器：停止自動化
 // ================================================
 ipcMain.on('stop-automation', async (event) => {
     console.log('[自動化] 收到停止請求');
     
     automationState.isRunning = false;
+    automationState.isPaused = false;
     currentAutomation = null;
     
     // 關閉 Puppeteer 瀏覽器

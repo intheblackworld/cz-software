@@ -4,9 +4,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     // 向主進程發送獲取銀行資訊的請求
     fetchBankInfo: (bankId) => ipcRenderer.invoke('fetch-bank-info', bankId),
     
-    // 開始/停止自動化
+    // 開始/停止/暫停/恢復自動化
     startAutomation: (config) => ipcRenderer.send('start-automation', config),
     stopAutomation: () => ipcRenderer.send('stop-automation'),
+    pauseAutomation: () => ipcRenderer.send('pause-automation'),
+    resumeAutomation: () => ipcRenderer.send('resume-automation'),
     
     // 接收主進程傳來的日誌
     onLogUpdate: (callback) => ipcRenderer.on('log-update', (_event, logData) => callback(logData)),
