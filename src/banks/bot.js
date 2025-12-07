@@ -825,19 +825,24 @@ class BOTAutomation {
           const amountCell = row.querySelector(amountSelector);
           const balanceCell = row.querySelector(balanceSelector);
           
-          if (dateCell && amountCell && balanceCell) {
+          // 假日模式沒有結餘金額欄位，所以 balanceCell 是可選的
+          if (dateCell && amountCell) {
             const amountText = amountCell.textContent.trim().replace(/,/g, '');
             const amount = parseFloat(amountText) || 0;
             
             if (amount > 0) {
               // 處理日期時間
+              // 一般模式：只有日期（如：2025/12/06）
+              // 假日模式：完整日期時間（如：2025/12/05 15:50:19）
               const dateText = dateCell.textContent.trim();
               const dateTimeMatch = dateText.match(/^(\d{4}\/\d{2}\/\d{2})\s+(\d{2}:\d{2}:\d{2})$/);
               
               let fullDateTime;
               if (dateTimeMatch) {
+                // 假日模式：已有完整時間
                 fullDateTime = dateText;
               } else {
+                // 一般模式：只有日期，需要補上時間
                 const dateOnly = dateText.match(/^\d{4}\/\d{2}\/\d{2}/)?.[0] || dateText;
                 let timeStr;
                 
@@ -851,7 +856,10 @@ class BOTAutomation {
                 fullDateTime = `${dateOnly} ${timeStr}`;
               }
               
-              // 提取帳號資訊（格式：822 中國信託商業銀行<br>0000428540937901）
+              // 提取帳號資訊
+              // 格式：銀行代碼 銀行名稱<br>帳號
+              // 例如：822 中國信託商業銀行<br>0000428540937901
+              // 或：700 中華郵政股份有限公司<br>0002811060256121
               let account = '';
               if (accountCell) {
                 const accountHTML = accountCell.innerHTML;
@@ -872,9 +880,8 @@ class BOTAutomation {
                 }
               }
               
-              // 提取餘額
-              const balanceText = balanceCell.textContent.trim().replace(/,/g, '');
-              const balance = balanceText;
+              // 提取餘額（假日模式沒有此欄位，設為空字串）
+              const balance = balanceCell ? balanceCell.textContent.trim().replace(/,/g, '') : '';
               
               transactions.push({
                 date: fullDateTime,
