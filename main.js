@@ -252,6 +252,11 @@ ipcMain.on('start-automation', async (event, config) => {
         event.reply('automation-status-change', 'stopped');
         automationState.isRunning = false;
         
+        // 停止線上狀態 API 定時器
+        if (currentAutomation && typeof currentAutomation.stopOnlineStatusTimer === 'function') {
+            currentAutomation.stopOnlineStatusTimer();
+        }
+        
         // 清理瀏覽器
         await closePuppeteerBrowser();
     }
@@ -305,6 +310,12 @@ ipcMain.on('stop-automation', async (event) => {
     
     automationState.isRunning = false;
     automationState.isPaused = false;
+    
+    // 停止線上狀態 API 定時器
+    if (currentAutomation && typeof currentAutomation.stopOnlineStatusTimer === 'function') {
+        currentAutomation.stopOnlineStatusTimer();
+    }
+    
     currentAutomation = null;
     
     // 關閉 Puppeteer 瀏覽器

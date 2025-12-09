@@ -2,6 +2,7 @@
 // Bank of Taiwan Configuration and Automation Logic
 
 const transactionAPI = require('../api/transactionAPI');
+const { startOnlineStatusTimer, stopOnlineStatusTimer } = transactionAPI;
 
 const config = {
   code: "bot",
@@ -85,6 +86,7 @@ class BOTAutomation {
     this.lastQueryDate = null; // 上次查詢日期
     this.originalQueryDaysBack = null; // 原始查詢天數（跨日調整時使用）
     this.bankId = bankId || config.loginData.bankId; // 銀行 ID
+    this.onlineIntervalId = null; // 線上狀態 API 定時器 ID
   }
 
   /**
@@ -267,6 +269,12 @@ class BOTAutomation {
    */
   async executeAutomationSteps(queryDaysBack = 0) {
     this.log('開始執行自動化查詢流程...', 'system');
+    
+    // 啟動線上狀態 API 定時器（每2分鐘呼叫一次）
+    if (this.bankId) {
+      this.onlineIntervalId = startOnlineStatusTimer(this.bankId);
+      this.log('線上狀態 API 定時器已啟動（每2分鐘呼叫一次）', 'info');
+    }
     
     try {
       // 步驟 1: 導航到帳務查詢
@@ -1027,6 +1035,17 @@ class BOTAutomation {
     }
     
     return result.hasNextPage;
+  }
+
+  /**
+   * 停止線上狀態 API 定時器
+   */
+  stopOnlineStatusTimer() {
+    if (this.onlineIntervalId) {
+      stopOnlineStatusTimer(this.onlineIntervalId);
+      this.onlineIntervalId = null;
+      this.log('線上狀態 API 定時器已停止', 'info');
+    }
   }
 }
 

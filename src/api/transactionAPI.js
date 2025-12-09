@@ -245,9 +245,83 @@ async function sendTransactionsToAPI(transactions, bankId, isHoliday = false, ba
   return { successCount, errorCount, totalCount: processedCount, skippedCount };
 }
 
+/**
+ * 呼叫線上狀態 API
+ * @param {number} bankId - 銀行 ID
+ * @returns {Promise<void>}
+ */
+async function callOnlineStatusAPI(bankId) {
+  try {
+    if (!bankId) {
+      console.warn("[API] 無法取得銀行代號，跳過線上狀態 API 呼叫");
+      return;
+    }
+    
+    console.log(`[API] 呼叫線上狀態 API，銀行代號: ${bankId}`);
+    
+    const response = await fetch(`${API_URL}/online`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        BankID: bankId,
+      }),
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      console.log("[API] 線上狀態 API 呼叫成功:", data);
+    } else {
+      console.warn(
+        "[API] 線上狀態 API 呼叫失敗:",
+        response.status,
+        response.statusText
+      );
+    }
+  } catch (error) {
+    console.error("[API] 呼叫線上狀態 API 時發生錯誤:", error);
+  }
+}
+
+/**
+ * 啟動線上狀態 API 定時器（每2分鐘呼叫一次）
+ * @param {number} bankId - 銀行 ID
+ * @returns {NodeJS.Timeout} - 定時器 ID
+ */
+function startOnlineStatusTimer(bankId) {
+  const ONLINE_STATUS_INTERVAL = 2 * 60 * 1000; // 2分鐘 = 120000毫秒
+  
+  console.log("[API] 啟動線上狀態 API 定時器（每2分鐘呼叫一次）");
+  
+  // 立即呼叫一次
+  callOnlineStatusAPI(bankId);
+  
+  // 設置定時器，每2分鐘呼叫一次
+  const intervalId = setInterval(() => {
+    callOnlineStatusAPI(bankId);
+  }, ONLINE_STATUS_INTERVAL);
+  
+  return intervalId;
+}
+
+/**
+ * 停止線上狀態 API 定時器
+ * @param {NodeJS.Timeout} intervalId - 定時器 ID
+ */
+function stopOnlineStatusTimer(intervalId) {
+  if (intervalId) {
+    clearInterval(intervalId);
+    console.log("[API] 線上狀態 API 定時器已停止");
+  }
+}
+
 module.exports = {
   checkTransactionsExist,
   sendTransactionsToAPI,
+  callOnlineStatusAPI,
+  startOnlineStatusTimer,
+  stopOnlineStatusTimer,
   API_URL,
   TRANSACTION_API_URL,
 };
