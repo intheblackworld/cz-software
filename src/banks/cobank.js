@@ -80,7 +80,7 @@ const config = {
       { name: "clickTransactionQuery", waitTime: 3000 },
       { name: "setDateRange", waitTime: 2000 },
       { name: "executeQuery", waitTime: 3000 },
-      { name: "extractTransactionData", waitTime: 2000 },
+      { name: "extractTransactionData", waitTime: 5000 },
       { name: "waitAndRequery", waitTime: 30000 }, // 30 秒
     ],
   },

@@ -1,0 +1,210 @@
+<table class="form">
+  <tbody>
+    <tr>
+      <th class="label"><div>查詢類型</div></th>
+      <td class="value">
+        <div>
+          <ul id="aaaa" class="radiocols clearfix">
+            <li>
+              <input
+                type="radio"
+                name="search_type"
+                id="search_type1"
+                checked="checked"
+                value="1"
+                autocomplete="off"
+              /><label for="search_type1">活存</label>
+            </li>
+
+            <li>
+              <input
+                type="radio"
+                name="search_type"
+                id="search_type2"
+                value="2"
+                autocomplete="off"
+              /><label for="search_type2">支存</label>
+            </li>
+
+            <li>
+              <input
+                type="radio"
+                name="search_type"
+                id="search_type3"
+                value="3"
+                autocomplete="off"
+              /><label for="search_type3">定存</label>
+            </li>
+
+            <li>
+              <input
+                type="radio"
+                name="search_type"
+                id="search_type4"
+                value="4"
+                autocomplete="off"
+              /><label for="search_type4">全部活/支/定存帳戶概要</label>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr class="search_class1">
+      <th class="label"><div>帳號</div></th>
+      <td class="value">
+        <div id="acc_num_select_div">
+          <select name="acct_num" id="acct_num_id">
+            <option value="">請選擇</option>
+            <option value="0">
+              TWD新臺幣-0000727540421710-可用餘額：1,194,155
+            </option>
+            <option value="1">USD美元-0000727131276303-可用餘額：0.00</option>
+          </select>
+        </div>
+        <span id="ajaxMessage"></span>
+      </td>
+    </tr>
+    <tr class="search_class2">
+      <th class="label"><div>搜尋時間</div></th>
+      <td class="value">
+        <div>
+          <ul class="radiocols clearfix">
+            <li>
+              <label
+                >起日
+                <input
+                  type="text"
+                  name="query_date_start"
+                  size="10"
+                  maxlength="10"
+                  value="2025/12/07"
+                  id="query_date_start_id"
+                  class="datepicker D1 hasDatepicker"
+                  date="date"
+                  autocomplete="off"
+                /><img
+                  class="ui-datepicker-trigger"
+                  src="../img/calendar.gif"
+                  alt=""
+                  title=""
+                />
+                <p class="query_date_startError"></p>
+              </label>
+            </li>
+            <li>
+              <label
+                >迄日
+                <input
+                  type="text"
+                  name="query_date_end"
+                  size="10"
+                  maxlength="10"
+                  value="2025/12/17"
+                  id="query_date_end_id"
+                  class="datepicker D1 hasDatepicker"
+                  date="date"
+                  autocomplete="off"
+                /><img
+                  class="ui-datepicker-trigger"
+                  src="../img/calendar.gif"
+                  alt=""
+                  title=""
+                />
+                <p class="query_date_endError"></p>
+              </label>
+            </li>
+            <li>
+              <label>
+                <button
+                  type="button"
+                  class="fbtn"
+                  id="searchButton"
+                  onclick="search()"
+                >
+                  開始查詢
+                </button>
+              </label>
+            </li>
+          </ul>
+          <span class="showActDtFlag_class" style="">
+            <input
+              type="checkbox"
+              name="showActDtFlag"
+              value="true"
+              id="showActDtFlag"
+              autocomplete="off"
+            /><input
+              type="hidden"
+              id="__checkbox_showActDtFlag"
+              name="__checkbox_showActDtFlag"
+              value="true"
+              autocomplete="off"
+            />
+            <span class="txt_05" style="color: black">顯示帳務日期</span>
+          </span>
+        </div>
+      </td>
+      <td><button id="queryBtn" style="display: none"></button></td>
+    </tr>
+    <tr class="search_class3">
+      <th class="label"><div>快速查詢</div></th>
+      <td class="value">
+        <div>
+          <p>
+            <button
+              id="dateButtons_0"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/12"
+              type="button"
+            >
+              2025/12</button
+            >&nbsp;<button
+              id="dateButtons_1"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/11"
+              type="button"
+            >
+              2025/11</button
+            >&nbsp;<button
+              id="dateButtons_2"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/10"
+              type="button"
+            >
+              2025/10</button
+            >&nbsp;<button
+              id="dateButtons_3"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/09"
+              type="button"
+            >
+              2025/09</button
+            >&nbsp;<button
+              id="dateButtons_4"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/08"
+              type="button"
+            >
+              2025/08</button
+            >&nbsp;<button
+              id="dateButtons_5"
+              class="fbtn fbtn3"
+              onclick="QuickSubmit(this)"
+              value="2025/07"
+              type="button"
+            >
+              2025/07</button
+            >&nbsp;<br /><span style="color: red"
+              ><s:text name="msg.query6months"></s:text
+            ></span>
+          </p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

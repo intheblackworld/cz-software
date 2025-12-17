@@ -65,8 +65,8 @@ const config = {
       { name: "clickTransactionQuery", waitTime: 5000 },
       { name: "setCurrentMonthDates", waitTime: 5000 },
       { name: "executeQuery", waitTime: 5000 },
-      { name: "extractTransactionData", waitTime: 2000 },
-      { name: "waitAndRequery", waitTime: 5000 },
+      { name: "extractTransactionData", waitTime: 5000 },
+      { name: "waitAndRequery", waitTime: 30000 },
     ],
   },
 };
@@ -316,7 +316,7 @@ class BOTAutomation {
    * 步驟 7: 等待並重新查詢
    */
   async step7_waitAndRequery(queryDaysBack = 0) {
-    const waitTime = config.automation.steps[6].waitTime || 5000;
+    const waitTime = config.automation.steps[7].waitTime || 30000;
     this.log(`等待 ${waitTime/1000} 秒後重新查詢...`, 'info');
     
     // 分段等待，每 1 秒檢查一次暫停狀態

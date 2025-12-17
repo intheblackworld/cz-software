@@ -1,0 +1,275 @@
+<div id="survivalTable">
+  <br />
+  <br />
+  <table class="data" width="100%">
+    <thead>
+      <tr class="data-hd">
+        <th style="width: 11%"><div>日期</div></th>
+        <th style="width: 7%"><div>摘要</div></th>
+        <th style="width: 6%"><div>幣別</div></th>
+        <th style="width: 15%"><div>支出金額</div></th>
+        <th style="width: 15%"><div>存入金額</div></th>
+        <th style="width: 15%"><div>餘額</div></th>
+        <th style="width: 7%"><div>備註</div></th>
+        <th style="width: 19%"><div>轉出入帳號</div></th>
+        <th style="width: 70px"><div>註記</div></th>
+      </tr>
+    </thead>
+    <tfoot></tfoot>
+    <tbody>
+      <tr class="data-row odd">
+        <td>
+          <div>2025/11/13</div>
+        </td>
+        <td>
+          <div>電匯</div>
+        </td>
+        <td>
+          <div>TWD</div>
+        </td>
+        <td class="num">
+          <div>1,112,636</div>
+        </td>
+        <td class="num">
+          <div>0</div>
+        </td>
+        <td class="num">
+          <div>476,845</div>
+        </td>
+        <td>
+          <div></div>
+        </td>
+        <td>
+          <div>0000727002362016</div>
+        </td>
+        <td>
+          <div>貨款</div>
+        </td>
+      </tr>
+
+      <tr class="data-row even">
+        <td>
+          <div>2025/11/13</div>
+        </td>
+        <td>
+          <div>跨行轉</div>
+        </td>
+        <td>
+          <div>TWD</div>
+        </td>
+        <td class="num">
+          <div>0</div>
+        </td>
+        <td class="num">
+          <div>1,000</div>
+        </td>
+        <td class="num">
+          <div>477,845</div>
+        </td>
+        <td>
+          <div>郵匯局</div>
+        </td>
+        <td>
+          <div>-</div>
+        </td>
+        <td>
+          <div>000071318**4658*</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginate">
+    <ul>
+      <span class="step gap">第一頁</span
+      ><span class="step gap">上一頁</span
+      ><select
+        id="selectPage"
+        onchange="_makePostRequest(this.options[this.selectedIndex].value)"
+      >
+        <option selected="selected" value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option></select
+      ><a href="#" onclick="_makePostRequest(2)">下一頁</a
+      ><a href="#" onclick="_makePostRequest(26)">最後頁</a>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    function _makePostRequest(step) {
+      var formTokenKey = "formTk";
+      var formTK = $("#" + formTokenKey).val();
+      var jForm = $("<form>")
+        .attr("action", "AQ102001SurvivalPagingHeader")
+        .attr("method", "post");
+      $("<input>").attr("name", "acct_num").attr("value", "0").appendTo(jForm);
+      $("<input>")
+        .attr("name", "query_date_end")
+        .attr("value", "2025/11/23")
+        .appendTo(jForm);
+      $("<input>")
+        .attr("name", "query_date_start")
+        .attr("value", "2025/11/13")
+        .appendTo(jForm);
+      $("<input>")
+        .attr("name", "showActDtFlag")
+        .attr("value", "false")
+        .appendTo(jForm);
+      $("<input>")
+        .attr("name", "search_type")
+        .attr("value", "1")
+        .appendTo(jForm);
+      $("<input>")
+        .attr("name", formTokenKey)
+        .attr("value", formTK)
+        .appendTo(jForm);
+      $("<input>").attr("name", "page").attr("value", step).appendTo(jForm);
+      $("body").append(jForm);
+      jForm.submit();
+    }
+  </script>
+</div>
+
+表格內容，請幫我抓取資料 1. 存入金額(金額) 2.
+交易日(交易時間)，他沒有交易時間，所以跟淡水一信一樣，程式使用當前時間減去5分鐘作為時間，紀錄跟判斷是否送出交易則加入餘額這個欄位去組合作為唯一ID
+3. 註記(帳號, 前3位銀行代碼 + 後16位帳號)，交易行欄位範例：
+<div>000071318**4658*</div>
+
+下一頁按鈕所在： 範例 page1 next button：<a
+  href="#"
+  onclick="_makePostRequest(2)"
+  >下一頁</a
+>
+page2 next button：<a href="#" onclick="_makePostRequest(3)">下一頁</a> page3
+next button：<a href="#" onclick="_makePostRequest(4)">下一頁</a>
+
+直到沒有下一頁按鈕 會變成長這樣 <span class="step gap">下一頁</span>
+查詢到的資料要記得會傳給 API 重新查詢的流程，從模擬點擊存款明細查詢開始 表格：
+<table class="data" width="100%">
+  <thead>
+    <tr class="data-hd">
+      <th style="width: 11%"><div>日期</div></th>
+      <th style="width: 7%"><div>摘要</div></th>
+      <th style="width: 6%"><div>幣別</div></th>
+      <th style="width: 15%"><div>支出金額</div></th>
+      <th style="width: 15%"><div>存入金額</div></th>
+      <th style="width: 15%"><div>餘額</div></th>
+      <th style="width: 7%"><div>備註</div></th>
+      <th style="width: 19%"><div>轉出入帳號</div></th>
+      <th style="width: 70px"><div>註記</div></th>
+    </tr>
+  </thead>
+  <tfoot></tfoot>
+  <tbody>
+    <tr class="data-row odd">
+      <td>
+        <div>2025/11/27</div>
+      </td>
+      <td>
+        <div>跨行轉</div>
+      </td>
+      <td>
+        <div>TWD</div>
+      </td>
+      <td class="num">
+        <div>0</div>
+      </td>
+      <td class="num">
+        <div>2,000</div>
+      </td>
+      <td class="num">
+        <div>353,346</div>
+      </td>
+      <td>
+        <div>郵匯局</div>
+      </td>
+      <td>
+        <div>-</div>
+      </td>
+      <td>
+        <div>000051468**6428*</div>
+      </td>
+    </tr>
+
+    <tr class="data-row even">
+      <td>
+        <div>2025/11/27</div>
+      </td>
+      <td>
+        <div>跨行轉</div>
+      </td>
+      <td>
+        <div>TWD</div>
+      </td>
+      <td class="num">
+        <div>0</div>
+      </td>
+      <td class="num">
+        <div>2,200</div>
+      </td>
+      <td class="num">
+        <div>355,546</div>
+      </td>
+      <td>
+        <div>郵匯局</div>
+      </td>
+      <td>
+        <div>-</div>
+      </td>
+      <td>
+        <div>000301363**7194*</div>
+      </td>
+    </tr>
+
+    <tr class="data-row odd">
+      <td>
+        <div>2025/11/27</div>
+      </td>
+      <td>
+        <div>跨行轉</div>
+      </td>
+      <td>
+        <div>TWD</div>
+      </td>
+      <td class="num">
+        <div>0</div>
+      </td>
+      <td class="num">
+        <div>1,000</div>
+      </td>
+      <td class="num">
+        <div>356,546</div>
+      </td>
+      <td>
+        <div>華　銀</div>
+      </td>
+      <td>
+        <div>-</div>
+      </td>
+      <td>
+        <div>000019120**6804*</div>
+      </td>
+    </tr>
+  </tbody>
+</table>

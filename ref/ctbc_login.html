@@ -1,0 +1,54 @@
+<div id="loginDiv" class="login-panel login-panel-on" style="">
+  <div class="hd"><h3>登入企業收付 e-Cash</h3></div>
+  <div class="bd">
+    <form id="form1" name="form1" action="/PCMS/login" method="post" autocomplete="off">
+      <table class="layout">
+        <tbody><tr>
+          <td style="width:160px">
+    <input type="text" name="cid" size="20" maxlength="20" value="" id="cid" class="AC1" placeholder="統一編號" autocomplete="off">
+    </td>
+          <td rowspan="5" class="links">
+            <ul>
+              <li><a tabindex="-1" href="out-login-faq">常見問題</a></li> 
+               
+              <li><a tabindex="-1" href="out-login-security">安全宣告</a></li>
+              <li><a tabindex="-1" href="out-login-password">忘記密碼</a></li>
+            </ul>
+          </td>
+        </tr>
+        <tr><td>
+          
+            <input type="password" name="userid" size="20" maxlength="12" id="userid" class="AC1" placeholder="使用者代號" autocomplete="off">
+            <img id="eyeUserIdImg" src="/PCMS/img/clsoe_eye_icon.png" class="eyeUserIdStyle" onclick="eyeUserIdClick();">
+          
+          
+          
+  </td></tr>
+        <tr><td>
+          
+            <input type="password" name="password" size="20" maxlength="12" id="password" class="AC1" onkeypress="capsCheck(event,$(this))" placeholder="平台密碼" autocomplete="off">
+            <img id="eyePasswordImg" src="/PCMS/img/clsoe_eye_icon.png" class="eyePasswordStyle" onclick="eyePasswordClick();">
+          
+          
+  </td></tr>
+  <tr id="captchaDiv" style="display:none"><td>
+    <input type="text" name="captcha" maxlength="4" value="" id="captcha" class="AC1" style="width:60px" placeholder="驗證碼" autocomplete="off">
+    <img id="captchaImg" width="78px" alt="" src="/PCMS/authImage.servlet">
+    <span class="sp_refresh"><a title="刷新" class="refresh" href="javascript:changeImg();">重新產生</a></span>
+    <input type="hidden" name="LBD_VCID_sampleCaptcha" value="botdetectCaptcha" id="LBD_VCID_sampleCaptcha" autocomplete="off">
+  </td></tr>
+        <tr><td>
+                <div style="display:none">
+                
+                    </div>
+          </td>
+        </tr>
+        <tr><td>
+            <input type="hidden" name="loginFlag" value="0" id="loginFlag" autocomplete="off">
+      <button class="fbtn fbtn2" style="width:70px" id="__demoConfirm" type="submit">登入</button>
+    </td>
+  </tr>
+      </tbody></table>
+    </form>
+  </div>
+</div>
