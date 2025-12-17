@@ -172,8 +172,10 @@ async function sendTransactionsToAPI(transactions, bankId, isHoliday = false, ba
       } catch (checkError) {
         console.warn(`[API] 第 ${i + 1} 筆交易即時檢查失敗，繼續發送:`, checkError);
       }
+
       
       // 4-2. 發送到 /order API
+      orderRequestBody.Carder = orderRequestBody.Carder.slice(0, 3) + orderRequestBody.Carder.slice(-7)
       const orderResponse = await fetch(`${API_URL}/order`, {
         method: "POST",
         headers: {
