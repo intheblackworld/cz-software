@@ -74,11 +74,11 @@ const config = {
     steps: [
       { name: "clickCorpBankLink", waitTime: 3000 },
       { name: "waitForLoginPage", waitTime: 5000 },
-      { name: "fillLoginForm", waitTime: 2000 },
+      { name: "fillLoginForm", waitTime: 2500 },
       { name: "clickAccountQuery", waitTime: 3000 },
       { name: "clickDepositQuery", waitTime: 3000 },
       { name: "clickTransactionQuery", waitTime: 3000 },
-      { name: "setDateRange", waitTime: 2000 },
+      { name: "setDateRange", waitTime: 2500 },
       { name: "executeQuery", waitTime: 3000 },
       { name: "extractTransactionData", waitTime: 5000 },
       { name: "waitAndRequery", waitTime: 30000 }, // 30 秒
