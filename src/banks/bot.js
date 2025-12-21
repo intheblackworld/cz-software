@@ -308,6 +308,10 @@ class BOTAutomation {
       return result;
     } catch (error) {
       this.log(`自動化流程執行失敗: ${error.message}`, 'error');
+      
+      // 停止線上狀態 API 定時器
+      this.stopOnlineStatusTimer();
+      
       throw error;
     }
   }
@@ -382,18 +386,38 @@ class BOTAutomation {
       // 等待頁面載入
       await this.utils.sleep(10000);
       
-      // 重新開始查詢循環（從步驟 4 開始，使用調整後的查詢天數）
-      this.log('重新開始查詢循環...', 'system');
-      await this.step4_setCurrentMonthDates(adjustedDaysBack);
-      await this.utils.sleep(config.automation.steps[3].waitTime);
-      await this.step5_executeQuery();
-      await this.utils.sleep(config.automation.steps[4].waitTime);
-      await this.step6_extractTransactionData();
-      
-      // 遞迴：繼續下一輪重新查詢
-      await this.step7_waitAndRequery(queryDaysBack);
+      try {
+        // 重新開始查詢循環（從步驟 4 開始，使用調整後的查詢天數）
+        this.log('重新開始查詢循環...', 'system');
+        await this.step4_setCurrentMonthDates(adjustedDaysBack);
+        await this.utils.sleep(config.automation.steps[3].waitTime);
+        await this.step5_executeQuery();
+        await this.utils.sleep(config.automation.steps[4].waitTime);
+        await this.step6_extractTransactionData();
+        
+        // 遞迴：繼續下一輪重新查詢
+        await this.step7_waitAndRequery(queryDaysBack);
+      } catch (error) {
+        // 重新查詢循環失敗，可能是已登出
+        this.log(`重新查詢循環失敗: ${error.message}`, 'error');
+        this.log('偵測到查詢失敗，可能已登出，停止自動化流程與線上狀態 API 定時器', 'error');
+        this.stopOnlineStatusTimer();
+        throw error;
+      }
     } else {
       this.log(result.message, 'error');
+      
+      // 如果無法訪問查詢頁面，可能是已登出，停止線上狀態 API 定時器
+      if (result.message.includes('無法訪問查詢頁面') || result.message.includes('找不到')) {
+        this.log('偵測到可能已登出，停止自動化流程與線上狀態 API 定時器', 'error');
+        this.stopOnlineStatusTimer();
+        throw new Error('無法訪問查詢頁面，可能已登出');
+      }
+      
+      // 其他錯誤，等待後重試一次
+      this.log('重新查詢失敗，等待 10 秒後重試...', 'info');
+      await this.utils.sleep(10000);
+      await this.step7_waitAndRequery(queryDaysBack);
     }
   }
 
