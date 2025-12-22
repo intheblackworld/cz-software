@@ -326,14 +326,55 @@ async function callOnlineStatusAPI(bankId) {
 
     console.log(`[API] 呼叫線上狀態 API，銀行代號: ${bankId}`);
 
+    // 先取得最新 balance
+    let balance = null;
+    try {
+      const balanceResponse = await fetch(
+        `${TRANSACTION_API_URL}/api/transactions/last_balance`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            bank_id: bankId,
+          }),
+        }
+      );
+
+      if (balanceResponse.ok) {
+        const balanceData = await balanceResponse.json();
+        if (balanceData.success && balanceData.data) {
+          balance = balanceData.data.balance;
+          console.log(`[API] 取得最新 balance: ${balance}`);
+        }
+      } else {
+        console.warn(
+          "[API] 取得 balance 失敗:",
+          balanceResponse.status,
+          balanceResponse.statusText
+        );
+      }
+    } catch (error) {
+      console.error("[API] 呼叫 last_balance API 時發生錯誤:", error);
+    }
+
+    // 準備請求 body
+    const requestBody = {
+      BankID: bankId,
+    };
+
+    // 如果有 balance，加入請求 body
+    if (balance !== null) {
+      requestBody.balance = balance;
+    }
+
     const response = await fetch(`${API_URL}/online`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        BankID: bankId,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (response.ok) {
