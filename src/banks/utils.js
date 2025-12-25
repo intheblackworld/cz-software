@@ -106,12 +106,34 @@ function generateUniqueId(transaction) {
 }
 
 /**
- * 檢查是否為節假日（簡易版本）
- * TODO: 可以整合台灣行事曆 API
+ * 檢查是否為節假日
+ * 包含週六日及台灣固定國定假日
+ * 注意：農曆節日（春節、清明、端午、中秋）需要額外整合農曆轉換或 API
  */
 function isHoliday(date = new Date()) {
   const day = date.getDay();
-  return day === 0 || day === 6; // 週六日
+  const month = date.getMonth() + 1; // JavaScript 月份從 0 開始
+  const dateNum = date.getDate();
+  
+  // 週六日
+  if (day === 0 || day === 6) {
+    return true;
+  }
+  
+  // 台灣固定國定假日
+  const fixedHolidays = [
+    { month: 1, date: 1 },   // 元旦
+    { month: 2, date: 28 },  // 和平紀念日
+    { month: 4, date: 4 },   // 兒童節
+    { month: 4, date: 5 },   // 清明節（通常 4/4 或 4/5，這裡列出兩天）
+    { month: 10, date: 10 }, // 國慶日
+    { month: 12, date: 25 }, // 行憲紀念日
+  ];
+  
+  // 檢查是否為固定國定假日
+  return fixedHolidays.some(holiday => 
+    holiday.month === month && holiday.date === dateNum
+  );
 }
 
 /**
