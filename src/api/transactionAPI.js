@@ -254,6 +254,7 @@ async function sendTransactionsToAPI(
             time: transaction.date,
             bank_id: parseInt(bankId),
             balance: parseInt(transaction.balance) || 0,
+            request_body: JSON.stringify(orderRequestBody)
           };
 
           const transactionApiResponse = await fetch(
