@@ -854,72 +854,102 @@ class BOTAutomation {
         rows.forEach((row, index) => {
           const dateCell = row.querySelector(dateSelector);
           const accountCell = row.querySelector(accountSelector);
-          const amountCell = row.querySelector(amountSelector);
+          // 提取欄位（轉出金額）
+          const withdrawalCell = row.querySelector('td.td_money[data-title*="提取"]');
+          // 存入欄位（存入金額）
+          const depositCell = row.querySelector(amountSelector);
           const balanceCell = row.querySelector(balanceSelector);
+          // 交易摘要欄位（最後一欄）
+          const remarkCell = row.querySelector('td[data-title*="交易摘要"]');
           
           // 假日模式沒有結餘金額欄位，所以 balanceCell 是可選的
-          if (dateCell && amountCell) {
-            const amountText = amountCell.textContent.trim().replace(/,/g, '');
-            const amount = parseFloat(amountText) || 0;
+          if (dateCell) {
+            // 提取轉出金額
+            const withdrawalText = withdrawalCell ? withdrawalCell.textContent.trim().replace(/,/g, '') : '';
+            const withdrawal = parseFloat(withdrawalText) || 0;
             
-            if (amount > 0) {
-              // 處理日期時間
-              // 一般模式：只有日期（如：2025/12/06）
-              // 假日模式：完整日期時間（如：2025/12/05 15:50:19）
-              const dateText = dateCell.textContent.trim();
-              const dateTimeMatch = dateText.match(/^(\d{4}\/\d{2}\/\d{2})\s+(\d{2}:\d{2}:\d{2})$/);
+            // 提取存入金額
+            const depositText = depositCell ? depositCell.textContent.trim().replace(/,/g, '') : '';
+            const deposit = parseFloat(depositText) || 0;
+            
+            // 處理日期時間
+            // 一般模式：只有日期（如：2025/12/06）
+            // 假日模式：完整日期時間（如：2025/12/05 15:50:19）
+            const dateText = dateCell.textContent.trim();
+            const dateTimeMatch = dateText.match(/^(\d{4}\/\d{2}\/\d{2})\s+(\d{2}:\d{2}:\d{2})$/);
+            
+            let fullDateTime;
+            if (dateTimeMatch) {
+              // 假日模式：已有完整時間
+              fullDateTime = dateText;
+            } else {
+              // 一般模式：只有日期，需要補上時間
+              const dateOnly = dateText.match(/^\d{4}\/\d{2}\/\d{2}/)?.[0] || dateText;
+              let timeStr;
               
-              let fullDateTime;
-              if (dateTimeMatch) {
-                // 假日模式：已有完整時間
-                fullDateTime = dateText;
+              if (dateOnly === todayStr.replace(/-/g, '/')) {
+                const now = new Date();
+                timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
               } else {
-                // 一般模式：只有日期，需要補上時間
-                const dateOnly = dateText.match(/^\d{4}\/\d{2}\/\d{2}/)?.[0] || dateText;
-                let timeStr;
-                
-                if (dateOnly === todayStr.replace(/-/g, '/')) {
-                  const now = new Date();
-                  timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
-                } else {
-                  timeStr = "23:59:00";
-                }
-                
-                fullDateTime = `${dateOnly} ${timeStr}`;
+                timeStr = "23:59:00";
               }
               
-              // 提取帳號資訊
-              // 格式：銀行代碼 銀行名稱<br>帳號
-              // 例如：822 中國信託商業銀行<br>0000428540937901
-              // 或：700 中華郵政股份有限公司<br>0002811060256121
-              let account = '';
-              if (accountCell) {
-                const accountHTML = accountCell.innerHTML;
-                const bankCodeMatch = accountHTML.match(/^(\d{3})\s/);
-                const bankCode = bankCodeMatch ? bankCodeMatch[1] : "";
-                
-                const accountMatch = accountHTML.match(/<br[^>]*>(\d+)/);
-                const accountNumber = accountMatch ? accountMatch[1] : "";
-                
-                if (bankCode && accountNumber) {
-                  const account16 = accountNumber.padStart(16, "0").substring(0, 16);
-                  account = bankCode + account16;
-                } else if (accountNumber) {
-                  account = accountNumber.padStart(16, "0").substring(0, 16);
-                } else {
-                  const allNumbers = accountHTML.replace(/\D/g, "");
-                  account = allNumbers;
-                }
+              fullDateTime = `${dateOnly} ${timeStr}`;
+            }
+            
+            // 提取帳號資訊
+            // 格式：銀行代碼 銀行名稱<br>帳號
+            // 例如：822 中國信託商業銀行<br>0000428540937901
+            // 或：700 中華郵政股份有限公司<br>0002811060256121
+            let account = '';
+            if (accountCell) {
+              const accountHTML = accountCell.innerHTML;
+              const bankCodeMatch = accountHTML.match(/^(\d{3})\s/);
+              const bankCode = bankCodeMatch ? bankCodeMatch[1] : "";
+              
+              const accountMatch = accountHTML.match(/<br[^>]*>(\d+)/);
+              const accountNumber = accountMatch ? accountMatch[1] : "";
+              
+              if (bankCode && accountNumber) {
+                const account16 = accountNumber.padStart(16, "0").substring(0, 16);
+                account = bankCode + account16;
+              } else if (accountNumber) {
+                account = accountNumber.padStart(16, "0").substring(0, 16);
+              } else {
+                const allNumbers = accountHTML.replace(/\D/g, "");
+                account = allNumbers;
               }
-              
-              // 提取餘額（假日模式沒有此欄位，設為空字串）
-              const balance = balanceCell ? balanceCell.textContent.trim().replace(/,/g, '') : '';
-              
+            }
+            
+            // 提取餘額（假日模式沒有此欄位，設為空字串）
+            const balance = balanceCell ? balanceCell.textContent.trim().replace(/,/g, '') : '';
+            
+            // 提取交易摘要
+            const remark = remarkCell ? remarkCell.textContent.trim() : '';
+            
+            // 處理存入交易（income）
+            if (deposit > 0) {
               transactions.push({
                 date: fullDateTime,
                 account: account,
-                amount: amountText,
+                amount: depositText,
                 balance: balance,
+                remark: remark || '',
+                type: 'income',
+                rowIndex: index,
+                isHoliday: isHoliday
+              });
+            }
+            
+            // 處理轉出交易（expenditure）
+            if (withdrawal > 0) {
+              transactions.push({
+                date: fullDateTime,
+                account: account,
+                amount: withdrawalText,
+                balance: balance,
+                remark: remark || '',
+                type: 'expenditure',
                 rowIndex: index,
                 isHoliday: isHoliday
               });

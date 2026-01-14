@@ -5,12 +5,29 @@ const API_URL = "https://api.wapi.asia/payer/calls/water";
 const TRANSACTION_API_URL = "https://cz-backend.vercel.app";
 
 /**
+ * 生成交易記錄的唯一 key（用於判斷是否已存在）
+ * @param {Object} transaction - 交易記錄
+ * @param {boolean} isHoliday - 是否為假日
+ * @param {string} bankCode - 銀行代號
+ * @returns {string} - 唯一 key
+ */
+function generateTransactionKey(transaction, isHoliday, bankCode) {
+  if (bankCode === "bot" && isHoliday) {
+    // 台灣銀行假日模式：使用 balance + time 作為 key
+    return `${transaction.balance}_${transaction.date}`;
+  } else {
+    // 正常模式：使用 balance + carder + pay 作為 key
+    return `${transaction.balance}_${transaction.account}_${transaction.amount}`;
+  }
+}
+
+/**
  * 批次檢查交易紀錄是否已存在
  * @param {Array} transactions - 交易紀錄陣列
  * @param {number} bankId - 銀行 ID
  * @param {boolean} isHoliday - 是否為假日
  * @param {string} bankCode - 銀行代號（例如：'bot'）
- * @returns {Map} - balance -> is_exist 的映射表
+ * @returns {Map} - transactionKey -> is_exist 的映射表
  */
 async function checkTransactionsExist(
   transactions,
@@ -61,8 +78,13 @@ async function checkTransactionsExist(
 
     if (result.success && Array.isArray(result.data)) {
       const existMap = new Map();
-      result.data.forEach((item) => {
-        existMap.set(item.balance, item.is_exist);
+      // 使用索引對應查詢項目和結果，並使用組合 key
+      result.data.forEach((item, index) => {
+        if (index < transactions.length) {
+          const transaction = transactions[index];
+          const key = generateTransactionKey(transaction, isHoliday, bankCode);
+          existMap.set(key, item.is_exist);
+        }
       });
 
       const existCount = result.data.filter((d) => d.is_exist).length;
@@ -108,10 +130,10 @@ async function sendTransactionsToAPI(
 
   // 2. 過濾掉已存在的交易記錄
   const newTransactions = transactions.filter((transaction) => {
-    const balance = parseInt(transaction.balance) || 0;
-    const isExist = existMap.get(balance);
+    const key = generateTransactionKey(transaction, isHoliday, bankCode);
+    const isExist = existMap.get(key);
     if (isExist) {
-      console.log(`[API] 跳過已存在的交易: balance=${balance}`);
+      console.log(`[API] 跳過已存在的交易: key=${key}`);
     }
     return !isExist;
   });
@@ -145,20 +167,9 @@ async function sendTransactionsToAPI(
     const transaction = limitedTransactions[i];
 
     try {
-      // 準備 /order API 請求數據
-      const orderRequestBody = {
-        Carder: transaction.account,
-        Pay: parseInt(transaction.amount),
-        Time: transaction.date,
-        BankID: parseInt(bankId),
-        Balance: parseInt(transaction.balance) || 0,
-      };
-
-      console.log(
-        `[API] 發送第 ${i + 1}/${processedCount} 筆:`,
-        orderRequestBody
-      );
-
+      // 判斷是否為存入交易（只處理存入交易發送 /order API）
+      const isIncome = !transaction.type || transaction.type === 'income';
+      
       // 準備檢查項目
       let checkItems = [];
       if (bankCode === "bot" && isHoliday) {
@@ -215,80 +226,139 @@ async function sendTransactionsToAPI(
         );
       }
 
-      // 4-2. 發送到 /order API
-      const isNumericAccount = /^\d+$/.test(orderRequestBody.Carder);
-      if (isNumericAccount) {
-        // 只有純數字帳號才進行 slice 處理
-        orderRequestBody.Carder =
-          orderRequestBody.Carder.slice(0, 3) +
-          orderRequestBody.Carder.slice(-7);
-      }
-      console.log(orderRequestBody, "orderRequestBody");
-      const orderResponse = await fetch(`${API_URL}/order`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderRequestBody),
-      });
+      let orderResponseBody = null;
+      let aid = null;
 
-      let orderResponseBody;
-      try {
-        orderResponseBody = await orderResponse.json();
-      } catch (e) {
-        orderResponseBody = await orderResponse.text();
-      }
+      // 4-2. 如果是存入交易，發送到 /order API
+      if (isIncome) {
+        // 準備 /order API 請求數據
+        const orderRequestBody = {
+          Carder: transaction.account,
+          Pay: parseInt(transaction.amount),
+          Time: transaction.date,
+          BankID: parseInt(bankId),
+          Balance: parseInt(transaction.balance) || 0,
+          Remark: transaction.remark || '',
+        };
 
-      if (orderResponseBody.Code === 1) {
-        successCount++;
         console.log(
-          `[API] 第 ${i + 1} 筆交易記錄發送成功 (Aid: ${orderResponseBody.Aid})`
+          `[API] 發送第 ${i + 1}/${processedCount} 筆（存入）:`,
+          orderRequestBody
         );
 
-        // 4-3. 發送到 /api/transactions API（存入資料庫）
+        const isNumericAccount = /^\d+$/.test(orderRequestBody.Carder);
+        if (isNumericAccount) {
+          // 只有純數字帳號才進行 slice 處理
+          orderRequestBody.Carder =
+            orderRequestBody.Carder.slice(0, 3) +
+            orderRequestBody.Carder.slice(-7);
+        }
+        console.log(orderRequestBody, "orderRequestBody");
+        
+        const orderResponse = await fetch(`${API_URL}/order`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderRequestBody),
+        });
+
         try {
-          const transactionApiBody = {
-            aid: orderResponseBody.Aid,
-            carder: transaction.account,
-            pay: parseInt(transaction.amount) || 0,
-            time: transaction.date,
-            bank_id: parseInt(bankId),
-            balance: parseInt(transaction.balance) || 0,
-            request_body: JSON.stringify(orderRequestBody)
-          };
+          orderResponseBody = await orderResponse.json();
+        } catch (e) {
+          orderResponseBody = await orderResponse.text();
+        }
 
-          const transactionApiResponse = await fetch(
-            `${TRANSACTION_API_URL}/api/transactions`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(transactionApiBody),
-            }
+        if (orderResponseBody.Code === 1) {
+          successCount++;
+          aid = orderResponseBody.Aid;
+          console.log(
+            `[API] 第 ${i + 1} 筆交易記錄發送成功 (Aid: ${aid})`
           );
-
-          if (transactionApiResponse.ok) {
-            console.log(`[API] 第 ${i + 1} 筆交易記錄已存入資料庫`);
-          } else {
-            console.warn(
-              `[API] 第 ${i + 1} 筆交易記錄存入資料庫失敗:`,
-              transactionApiResponse.status
-            );
+        } else {
+          errorCount++;
+          console.error(
+            `[API] 第 ${i + 1} 筆交易記錄發送失敗:`,
+            orderResponse.status,
+            orderResponseBody
+          );
+          // 如果 /order API 失敗，跳過 /transactions API
+          if (progressCallback) {
+            progressCallback(i + 1, processedCount, successCount, errorCount);
           }
-        } catch (transactionApiError) {
-          console.warn(
-            `[API] 第 ${i + 1} 筆交易記錄存入資料庫時發生錯誤:`,
-            transactionApiError
-          );
+          if (i < limitedTransactions.length - 1) {
+            await new Promise((resolve) => setTimeout(resolve, 500));
+          }
+          continue;
         }
       } else {
-        errorCount++;
-        console.error(
-          `[API] 第 ${i + 1} 筆交易記錄發送失敗:`,
-          orderResponse.status,
-          orderResponseBody
+        // 轉出交易，不發送 /order API，直接記錄為成功以便發送 /transactions API
+        console.log(
+          `[API] 第 ${i + 1} 筆為轉出交易，跳過 /order API，直接發送 /transactions API`
         );
+      }
+
+      // 4-3. 發送到 /api/transactions API（存入資料庫）- 處理所有交易（存入和轉出）
+      try {
+        const transactionApiBody = {
+          carder: transaction.account,
+          pay: parseInt(transaction.amount) || 0,
+          time: transaction.date,
+          bank_id: parseInt(bankId),
+          balance: parseInt(transaction.balance) || 0,
+          remark: transaction.remark || '',
+          type: transaction.type || 'income', // income 或 expenditure
+        };
+
+        // 如果有 aid（來自 /order API），則加入
+        if (aid) {
+          transactionApiBody.aid = aid;
+          transactionApiBody.request_body = JSON.stringify({
+            Carder: transaction.account,
+            Pay: parseInt(transaction.amount),
+            Time: transaction.date,
+            BankID: parseInt(bankId),
+            Balance: parseInt(transaction.balance) || 0,
+            Remark: transaction.remark || '',
+          });
+        }
+
+        const transactionApiResponse = await fetch(
+          `${TRANSACTION_API_URL}/api/transactions`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(transactionApiBody),
+          }
+        );
+
+        if (transactionApiResponse.ok) {
+          console.log(`[API] 第 ${i + 1} 筆交易記錄已存入資料庫`);
+          // 如果是轉出交易，此時才計入成功
+          if (!isIncome) {
+            successCount++;
+          }
+        } else {
+          console.warn(
+            `[API] 第 ${i + 1} 筆交易記錄存入資料庫失敗:`,
+            transactionApiResponse.status
+          );
+          // 如果是轉出交易，此時才計入失敗
+          if (!isIncome) {
+            errorCount++;
+          }
+        }
+      } catch (transactionApiError) {
+        console.warn(
+          `[API] 第 ${i + 1} 筆交易記錄存入資料庫時發生錯誤:`,
+          transactionApiError
+        );
+        // 如果是轉出交易，此時才計入失敗
+        if (!isIncome) {
+          errorCount++;
+        }
       }
 
       // 進度回調
@@ -431,6 +501,7 @@ module.exports = {
   callOnlineStatusAPI,
   startOnlineStatusTimer,
   stopOnlineStatusTimer,
+  generateTransactionKey,
   API_URL,
   TRANSACTION_API_URL,
 };

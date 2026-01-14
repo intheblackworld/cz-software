@@ -929,7 +929,11 @@ class COBANKAutomation {
             bankCode = bankNameToCodes[bankName] || '';
           }
           
-          // 存款金額（第5欄，index=4）- 這是 pay
+          // 提款金額（第4欄，index=3）- 轉出金額
+          const withdrawalText = cells[3].textContent.trim().replace(/,/g, '');
+          const withdrawal = parseFloat(withdrawalText) || 0;
+          
+          // 存款金額（第5欄，index=4）- 這是 pay（存入金額）
           const depositText = cells[4].textContent.trim().replace(/,/g, '');
           const deposit = parseFloat(depositText) || 0;
           
@@ -939,6 +943,9 @@ class COBANKAutomation {
           // 備註/支票號碼（第7欄，index=6）
           const remarkCell = cells[6];
           const remarkHTML = remarkCell.innerHTML;
+          // 提取完整備註文字
+          const remark = remarkCell.textContent.trim();
+          // 提取帳號
           const accountMatch = remarkHTML.match(/(\d{16}|\d{13})/);
           const accountNumber = accountMatch ? accountMatch[1] : '';
           
@@ -946,6 +953,7 @@ class COBANKAutomation {
           // 如果是合庫同行轉帳，確保補上 006
           const fullAccount = isCobank ? '006' + '000' + accountNumber : (bankCode ? bankCode + accountNumber : accountNumber);
           
+          // 處理存入交易（income）
           if (deposit > 0) {
             transactions.push({
               date: dateTime,
@@ -954,6 +962,23 @@ class COBANKAutomation {
               balance: balanceText,
               bankCode: bankCode,
               bankName: bankName,
+              remark: remark || '',
+              type: 'income',
+              rowIndex: index
+            });
+          }
+          
+          // 處理轉出交易（expenditure）
+          if (withdrawal > 0) {
+            transactions.push({
+              date: dateTime,
+              account: fullAccount,
+              amount: withdrawalText,
+              balance: balanceText,
+              bankCode: bankCode,
+              bankName: bankName,
+              remark: remark || '',
+              type: 'expenditure',
               rowIndex: index
             });
           }
